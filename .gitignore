@@ -1,0 +1,7 @@
+# ملفّات وسيطة للعمل — لا تُودَع
+.work/
+.cp-shell/
+.__shot_*.html
+__pycache__/
+*.pyc
+_site/

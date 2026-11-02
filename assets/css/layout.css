@@ -1,0 +1,332 @@
+/* =============================================================================
+   قيمر وكاهي — تخطيط الصفحات
+   -----------------------------------------------------------------------------
+   كل خاصيّة اتّجاه مكتوبة **منطقيّاً** (`inset-inline-start` لا `left`)
+   فالصفحة العربيّة والإنجليزيّة تتشاركان ملفّاً واحداً ولا يتباعدان.
+   ⚠ وفي RTL: `inset-inline-start` = يمين. فلا تُخلط مع خاصيّة بصريّة.
+   ============================================================================= */
+
+/* ================================================================== الترويسة */
+.hdr {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--cream-100) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.3);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease),
+              background var(--dur) var(--ease);
+}
+.hdr.is-stuck {
+  border-bottom-color: var(--line);
+  background: color-mix(in srgb, var(--cream-100) 96%, transparent);
+}
+.hdr__in {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  min-height: 86px;
+}
+.hdr__logo { flex: none; display: flex; align-items: center; }
+/* 54px لا 40: الشعار يحمل الخطّ العربيّ **والسطر اللاتينيّ** معاً،
+   وعند 40 لا يُقرأ أيّهما — مُتحقَّق في لقطة. */
+.hdr__logo img { height: 54px; width: auto; }
+
+.nav { display: flex; gap: var(--s-2); margin-inline-start: auto; }
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: var(--t-sm);
+  font-weight: 500;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: background .18s var(--ease);
+}
+.nav a:hover { background: var(--cream-200); color: var(--text); }
+.nav a[aria-current="page"] { color: var(--brand); }
+
+.hdr__side { display: flex; align-items: center; gap: var(--s-2); flex: none; }
+
+/* زرّ اللغة: يُعلن **اللغة التي سينتقل إليها** لا اللغة الحاليّة — زرّ
+   مكتوبٌ عليه «عربي» في صفحة عربيّة لا يُفهم أيُّهما هو */
+.lang {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 var(--s-4);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: var(--t-xs);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+  letter-spacing: .04em;
+}
+.lang:hover { background: var(--cream-200); color: var(--text); }
+
+.burger { display: none; }
+
+@media (max-width: 920px) {
+  .nav {
+    position: fixed;
+    inset: 86px 0 auto 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--cream-50);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s-3) clamp(16px, 5vw, 48px) var(--s-5);
+    box-shadow: var(--shadow);
+    /* مغلقةٌ افتراضيّاً — وتُفتح بسمةٍ على <body> لا بـstyle في السطر */
+    display: none;
+  }
+  body.is-nav-open .nav { display: flex; }
+  .nav a { padding: var(--s-4) var(--s-2); border-bottom: 1px solid var(--line); font-size: var(--t-lg); }
+  .nav a:last-child { border-bottom: 0; }
+
+  .burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    background: none;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--text);
+  }
+}
+
+/* ================================================================== الواجهة */
+.hero {
+  position: relative;
+  padding-block: clamp(var(--s-7), 7vw, var(--s-9));
+  background:
+    radial-gradient(1200px 500px at 85% -10%, var(--teal-100), transparent 70%),
+    radial-gradient(900px 420px at 5% 110%, var(--maroon-100), transparent 70%);
+}
+.hero__in {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(var(--s-6), 5vw, var(--s-8));
+  align-items: center;
+}
+.hero__mark { height: 72px; width: auto; margin-bottom: var(--s-5); }
+.hero h1 {
+  font-size: var(--t-5xl);
+  margin-bottom: var(--s-4);
+  text-wrap: balance;
+}
+.hero__lede {
+  font-size: var(--t-xl);
+  color: var(--text-soft);
+  max-width: 46ch;
+  margin-bottom: var(--s-6);
+}
+.hero__cta { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-bottom: var(--s-6); }
+
+/* شرائح الحقائق: ثلاث حقائق **مُتحقَّقة** لا شعارات */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-5);
+  padding-block-start: var(--s-5);
+  border-block-start: 1px solid var(--line);
+}
+.facts div { min-width: 92px; }
+.facts b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-2xl);
+  line-height: 1.1;
+  color: var(--maroon-600);
+}
+.facts span { font-size: var(--t-xs); color: var(--text-faint); }
+
+/* الفيديو عموديّ 576×1024 أصلاً — يُعرَض بنسبته ولا يُكبَّر، فالتكبير
+   يُنتج ضبابةً تُقرأ «جودة رديئة» */
+.hero__media { position: relative; }
+.hero__video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 72vh;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background: var(--ink-900);
+}
+.hero__cap {
+  position: absolute;
+  inset-block-end: var(--s-4);
+  inset-inline-start: var(--s-4);
+  inset-inline-end: var(--s-4);
+  color: var(--cream-100);
+  font-size: var(--t-xs);
+  text-shadow: 0 1px 10px rgba(13, 13, 11, .9);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+@media (max-width: 980px) {
+  .hero__in { grid-template-columns: 1fr; }
+  .hero__media { order: -1; max-width: 420px; margin-inline: auto; }
+  .hero__video { max-height: 56vh; }
+}
+
+/* ================================================================== القصّة */
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(var(--s-6), 5vw, var(--s-8)); align-items: center; }
+.story__figs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+  align-items: start;
+}
+/* المحدِّدُ على `picture` لا على `img`: الصورةُ ليست ابنَ الشبكةِ */
+.story__figs > picture:first-child { margin-block-start: var(--s-8); }
+.story__figs img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.story p { font-size: var(--t-lg); color: var(--text-soft); }
+.story__q {
+  font-family: var(--font-serif);
+  font-size: var(--t-xl);
+  color: var(--teal-800);
+  border-inline-start: 3px solid var(--maroon-600);
+  padding-inline-start: var(--s-5);
+  margin-block: var(--s-6);
+}
+@media (max-width: 860px) { .story { grid-template-columns: 1fr; } }
+
+/* ============================================================ شريط الأطباق */
+/* لفّ أفقي. ⚠ في RTL يمتدّ المحتوى الزائد **يساراً**، فأيّ تحريك مربوط
+   بالتمرير يستخدم `translateX` **موجباً**. والسالب يدفعه بعيداً فيبلّغ
+   العميل أنّ «لا شيء يتحرّك». */
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(78vw, 300px);
+  gap: var(--s-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-block-end: var(--s-4);
+  scrollbar-width: thin;
+  /* الحافة تنزف إلى طرف الشاشة فيُفهم أنّ بعدها مزيداً */
+  margin-inline: calc(-1 * clamp(16px, 5vw, 48px));
+  padding-inline: clamp(16px, 5vw, 48px);
+}
+.rail > * { scroll-snap-align: start; }
+
+.dish {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.dish img { aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+.dish__b { padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-2); flex: 1; }
+.dish__n { font-family: var(--font-display); font-size: var(--t-lg); }
+.dish__d { font-size: var(--t-sm); color: var(--text-faint); line-height: 1.6; margin: 0; }
+.dish__f { margin-block-start: auto; display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); padding-block-start: var(--s-2); }
+.dish__p { font-family: var(--font-display); font-size: var(--t-xl); color: var(--maroon-600); }
+.dish__p small { font-size: var(--t-xs); color: var(--text-faint); font-family: var(--font-body); }
+
+/* ============================================================ أقسام المنيو */
+.cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--s-3); }
+.cat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-5);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .18s var(--ease), transform .18s var(--ease);
+}
+.cat:hover { border-color: var(--teal-400); transform: translateY(-2px); color: var(--text); }
+.cat b { font-family: var(--font-display); font-weight: 700; font-size: var(--t-lg); }
+.cat span { font-size: var(--t-xs); color: var(--text-faint); white-space: nowrap; }
+.cat em { display: block; font-style: normal; font-size: var(--t-xs); color: var(--teal-700); }
+
+/* ================================================================== الفروع */
+.branches { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5); }
+.branch {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+/* `object-position` يرفع الإطارَ إلى اللوحةِ والشعار: الصورةُ الأصليّةُ
+   فيها موظّفون واقفون في أسفلِ الكادر، وبطاقةُ فرعٍ ليست موضعَ نشرِ
+   وجوهٍ بلا إذن. والقرارُ معروضٌ على المالكِ في docs/PLAN.md. */
+.branch__img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: 50% 18%;
+  width: 100%;
+  background: var(--bg-sunken);
+}
+/* مكان الصورة الغائبة: **لا يبقى أبيض**. البياض يُقرأ عطلاً، والمكان
+   الموسوم يُقرأ صدقاً ويقول لماذا */
+.branch__ph {
+  aspect-ratio: 16/10;
+  display: grid;
+  place-content: center;
+  gap: var(--s-2);
+  text-align: center;
+  padding: var(--s-5);
+  background:
+    repeating-linear-gradient(135deg, var(--cream-200) 0 10px, var(--cream-300) 10px 20px);
+  color: var(--ink-600);
+  font-size: var(--t-sm);
+}
+.branch__b { padding: var(--s-5); display: flex; flex-direction: column; gap: var(--s-3); flex: 1; }
+.branch__b h3 { font-size: var(--t-2xl); }
+.branch dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: var(--s-2) var(--s-4); font-size: var(--t-sm); }
+.branch dt { color: var(--text-faint); white-space: nowrap; }
+.branch dd { margin: 0; }
+.branch__cta { margin-block-start: auto; display: flex; flex-wrap: wrap; gap: var(--s-2); padding-block-start: var(--s-3); }
+@media (max-width: 860px) { .branches { grid-template-columns: 1fr; } }
+
+/* ================================================================== التذييل */
+.ftr { background: var(--bg-inverse); color: var(--text-on-dark); padding-block: var(--s-8) var(--s-6); }
+.ftr a { color: var(--text-on-dark-soft); text-decoration: none; }
+.ftr a:hover { color: var(--cream-100); text-decoration: underline; }
+.ftr__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--s-6); }
+.ftr h4 { font-family: var(--font-body); font-size: var(--t-xs); font-weight: 600; letter-spacing: .1em; color: var(--teal-400); margin-bottom: var(--s-4); }
+.ftr ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-3); font-size: var(--t-sm); }
+.ftr__logo { height: 44px; width: auto; margin-bottom: var(--s-4); filter: invert(1) brightness(1.9) contrast(.9); }
+.ftr__note { color: var(--text-on-dark-soft); font-size: var(--t-sm); max-width: 42ch; }
+.ftr__btm {
+  margin-block-start: var(--s-7);
+  padding-block-start: var(--s-5);
+  border-block-start: 1px solid var(--line-on-dark);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  justify-content: space-between;
+  font-size: var(--t-xs);
+  color: var(--text-on-dark-soft);
+}
+@media (max-width: 860px) { .ftr__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .ftr__grid { grid-template-columns: 1fr; } }
+
+/* ملاحظةٌ على بطاقةِ طبقٍ: حين تُظهر الصورةُ أكثرَ ممّا في الطبق.
+   صورةٌ تَعِد بما ليس في الطبقِ خلافٌ على الطاولةِ لا تسويق. */
+.dish__note {
+  font-size: var(--t-xs);
+  color: var(--gold-600);   /* على الكريمي 4.70:1 — نصّ */
+  margin: 0;
+}

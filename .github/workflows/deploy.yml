@@ -1,0 +1,131 @@
+name: فحص ونشر
+
+# لماذا لا يُنشَر جذرُ المستودع كما هو:
+# GitHub Pages في الوضع الافتراضيّ ينشر **كلَّ ملفّ** في الفرع — ومعه
+# `intake/` الذي يرفع فيه المالك وثائقَه، و`docs/evidence/` الذي فيه أدلّةُ
+# مراجعةِ الحقوقِ ولقطاتُ العمل. فيصير ما رُفع لأجلِ العملِ متاحاً لمن
+# يعرف المسار. ولذلك يُبنى `_site` بما يُنشَر وحدَه.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # ------------------------------------------------------------------ الفحص
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: الفحوص الذاتيّة للحرّاس (تُجرَّب على عطلٍ معروف)
+        run: |
+          set -e
+          python3 .kiro/tools/check_contrast.py --selftest
+          python3 .kiro/tools/check_assets.py   --selftest
+          python3 .kiro/tools/build_menu.py     --selftest
+          python3 .kiro/tools/build_menu_page.py --selftest
+          python3 .kiro/tools/section_shot.py   --selftest
+          python3 .kiro/tools/check_links.py     --selftest
+          python3 .kiro/tools/check_ci_wired.py  --selftest
+
+      - name: نسب التباين المكتوبة تطابق الحساب
+        run: python3 .kiro/tools/check_contrast.py assets/css/tokens.css
+
+      - name: كل أصلٍ مُشارٍ إليه موجود، وكل صورة لها alt وأبعاد
+        run: python3 .kiro/tools/check_assets.py index.html menu.html en/index.html en/menu.html
+
+      - name: صفحةُ المنيو مطابقةٌ للبيانات (لا تُحرَّر بيد)
+        # تُعاد التوليدُ ويُقارَن: من حرّر menu.html بيدٍ يضيع تحريرُه في
+        # أوّلِ بناء، ومن عدّل data/menu.json ونسي التوليدَ يُنشَر منيو قديم
+        run: |
+          cp menu.html /tmp/menu.ar.before
+          cp en/menu.html /tmp/menu.en.before
+          python3 .kiro/tools/build_menu_page.py data/menu.json
+          diff -q /tmp/menu.ar.before menu.html || {
+            echo "::error::menu.html يخالف ناتجَ build_menu_page.py — أعِد التوليدَ وأودِعه"; exit 1; }
+          diff -q /tmp/menu.en.before en/menu.html || {
+            echo "::error::en/menu.html يخالف الناتج — أعِد التوليد"; exit 1; }
+
+      - name: لا رابطَ ميّتٌ بين الصفحات
+        run: python3 .kiro/tools/check_links.py
+
+      - name: كل سكربت فحصٍ مربوطٌ بهذه الوظيفة
+        # سكربتُ فحصٍ موجودٌ وغيرُ مربوطٍ بـCI هو صفرُ تأكيدات، ويُطمئنُ
+        # من يقرأ قائمةَ الملفّاتِ وهو لم يُشغَّل قطّ
+        run: python3 .kiro/tools/check_ci_wired.py
+
+  # ------------------------------------------------------------------ النشر
+  build:
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: بناء _site بما يُنشَر وحدَه
+        run: |
+          set -e
+          mkdir -p _site
+          # ⚠ قائمةُ **ما يُنشَر** لا قائمةُ ما يُستثنى: الاستثناءُ ينسى
+          # أوّلَ مجلّدٍ جديد، فيُنشَر ما لم يُقصَد نشرُه
+          cp -a index.html menu.html _site/
+          cp -a assets _site/
+          cp -a en _site/
+          cp -a .nojekyll _site/ 2>/dev/null || true
+          # علامةٌ نصّيّةٌ يبحث عنها المالك بـCtrl+F ليتأكّد أنّ المنشورَ
+          # هو الأحدث — «دُمج» لا يعني «وصل»
+          echo "<!-- build: ${GITHUB_SHA} -->" >> _site/index.html
+          echo "<!-- build: ${GITHUB_SHA} -->" >> _site/en/index.html
+          echo "::notice::بصمة النشر ${GITHUB_SHA}"
+
+      - name: التأكّد أنّ ما لا يُنشَر غيرُ موجودٍ في _site
+        # لا يُعتمَد على النيّة: يُفحَص الناتجُ فعلاً
+        run: |
+          set -e
+          fail=0
+          for d in intake docs .kiro .github data; do
+            if [ -e "_site/$d" ]; then
+              echo "::error::_site/$d موجودٌ وما كان يجب أن يُنشَر"; fail=1
+            fi
+          done
+          test -f _site/index.html || { echo "::error::لا index.html في _site"; fail=1; }
+          test -f _site/menu.html || { echo "::error::لا menu.html في _site"; fail=1; }
+          test -f _site/en/index.html || { echo "::error::لا en/index.html"; fail=1; }
+          test -d _site/assets/fonts || { echo "::error::لا خطوط — العربيّة ستُرسم بخطّ النظام"; fail=1; }
+          exit $fail
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      # «دُمج» ليس «وصل». خطوةٌ تقول بالكلماتِ إنّ الموقعَ لم يُحدَّث
+      # وتُسمّي السبب — فشلُ نشرٍ صامتٌ يُقرأ «العملُ لم يُنفَّذ»
+      - if: failure()
+        run: |
+          echo "::error::الموقع لم يُحدَّث. الدمجُ في main لا يعني الوصولَ إلى الشاشة."
+          echo "::error::تحقّق: Settings ← Pages ← Source = GitHub Actions."
+          exit 1

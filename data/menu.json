@@ -1,0 +1,2414 @@
+{
+ "_source": "alsheikha-hr/menu-seed (gaimer-w-kahi.json + ar-menu.json + allergens.json)",
+ "_rule": "السعرُ المتعارضُ محجوبٌ ومُوسَّمٌ priceConflict — لا يُخمَّن. والاسمُ العربيُّ الغائبُ يسقط على الإنجليزيِّ ولا يُترجَم. ونصُّ الحساسيّةِ نصُّ المالكِ (textAr) والرموزُ فوقَه.",
+ "currency": "QAR",
+ "currencyAr": "ر.ق",
+ "allergenLabels": {
+  "gluten": {
+   "en": "Gluten (wheat)",
+   "ar": "غلوتين (قمح)"
+  },
+  "milk": {
+   "en": "Milk & dairy",
+   "ar": "حليب ومشتقّاته"
+  },
+  "egg": {
+   "en": "Egg",
+   "ar": "بيض"
+  },
+  "sesame": {
+   "en": "Sesame",
+   "ar": "سمسم"
+  },
+  "nuts": {
+   "en": "Tree nuts",
+   "ar": "مكسّرات"
+  },
+  "soy": {
+   "en": "Soy",
+   "ar": "صويا"
+  },
+  "mustard": {
+   "en": "Mustard",
+   "ar": "خردل"
+  },
+  "legumes": {
+   "en": "Legumes (broad beans, chickpeas)",
+   "ar": "بقوليات"
+  }
+ },
+ "sections": [
+  {
+   "id": "breakfast",
+   "name": "Breakfast",
+   "nameAr": "صباح الخير",
+   "note": {
+    "en": "Served all day",
+    "ar": "يُقدَّم طول اليوم"
+   },
+   "dishes": [
+    {
+     "name": "Kahi",
+     "nameAr": "كاهي قطعة واحدة",
+     "description": "Kahi an Iraqi plain puff (1-2 Persons)",
+     "descriptionAr": "فطيرة ساده عراقية",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (سمن/زبدة)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Khalidji Tray",
+     "nameAr": "الصينية الخليجية",
+     "description": "The khaliji tray consists of , Balaleet , Lamb liver , Foul Mudamas , gors tabi (crepe), shakshuka , Labneh, served with your choice of small kittle tea or karak",
+     "descriptionAr": "تتكون من بلاليط، كيمة، فول مدمس، قرص طابي، شكشوكة، لبنة، وتقدم مع إختيارك من قوري شاي صغير أو كرك",
+     "price": null,
+     "priceConflict": {
+      "program": 188.0,
+      "ownerFile": 170.0
+     },
+     "truncated": false,
+     "allergenText": "حليب (ألبان)، بيض، غلوتين (قمح)، سمسم",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk",
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Gaimer",
+     "nameAr": "قيمر",
+     "description": "Gaimer is an Iraqi cream (1-2 Persons)",
+     "descriptionAr": "قشطة عراقية",
+     "price": 50.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (ألبان)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Ryoq Tray",
+     "nameAr": null,
+     "description": "Foul mudamas , special falafel , lamb liver , egg with cheese",
+     "descriptionAr": null,
+     "price": 155.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": null,
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Breakfast Tray",
+     "nameAr": "صينية فطور",
+     "description": "Breakfast tray with fried egg, humuss, Haloumi cheese plate, Labneh with zataar, Grenadine molasses and olive oil , Salad,Honey, Sammon bread and choice of (shakshuka or beef meat omelet) also choice of (Fried tomatoes Iraqi style or Foul mudammes). (2-4 Persons)",
+     "descriptionAr": "تتكون من بيض مقلي، حمص، طبق جبن حلومي، لبنة بالزعتر ودبس رمان وزيت زيتون، سلطة خضراء، عسل، خبز سمون، إختيارك من (شكشوكة أو مخلمة)، وإختيارك من (طماطم مقلية أو فول مدمس)",
+     "price": null,
+     "priceConflict": {
+      "program": 152.0,
+      "ownerFile": 130.0
+     },
+     "truncated": false,
+     "allergenText": "حليب (ألبان)، بيض، غلوتين (قمح)، سمسم",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk",
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Afternoon Iraqi",
+     "nameAr": null,
+     "description": "Afternoon tray consisting of fried potatoes and eggplant, oroog tawa (Iraqi kebab), salad, meat Hamsa, 5 falafel pieces, a mixed appetizer plate (hummus, mutabal, Iraqi pickled tarshi, Iraqi mutabal), 1 pc potato kibbeh, 1 pc rice kibbeh, 1 pc Bulgur kibbeh, chicken liver with pomegranate molasses. (2-5 Persons)",
+     "descriptionAr": null,
+     "price": 245.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": null,
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Eggs And Tomato",
+     "nameAr": "بيض و طماطم",
+     "description": "Hamsa tomatoes and eggs with our special gulf spices in traditional way",
+     "descriptionAr": "طماطم وبيض ببهاراتنا الخليجية الخاصة على الطريقة التقليدية",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "بيض",
+     "allergenHas": [
+      "egg"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Keema",
+     "nameAr": null,
+     "description": "Minced meat, peas, red sauce, special spices",
+     "descriptionAr": null,
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": null,
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Egg with Cheese",
+     "nameAr": "بيض وأجبان",
+     "description": null,
+     "descriptionAr": "بيض مع 3 أجبان في الفرن",
+     "price": 48.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "بيض، حليب (ألبان)",
+     "allergenHas": [
+      "egg",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Lamb Liver",
+     "nameAr": null,
+     "description": "Lamb liver with our special spices covered with Kahi dough",
+     "descriptionAr": null,
+     "price": 75.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": null,
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Balaleet",
+     "nameAr": "بلاليط",
+     "description": null,
+     "descriptionAr": "شعيرية محلاة بالسكر، زعفران توابلنا الخاصة ويقدم مع اومليت البيض فوقه",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "بيض، غلوتين (قمح)، حليب",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Special Shakshouka",
+     "nameAr": "شكشوكة خاصة",
+     "description": "Tomatoes, onions, pepper, eggs, special spices.",
+     "descriptionAr": "طماطم، بصل، فلفل، بيض، توابل خاصة",
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "بيض",
+     "allergenHas": [
+      "egg"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Gaimer W Kahi Special Eggs",
+     "nameAr": null,
+     "description": "Kahi topped with our special veg omelet and cream cheese (2 persons)",
+     "descriptionAr": null,
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": null,
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Shakshuka",
+     "nameAr": "شكشوكة",
+     "description": "Eggs, tomato and cream cheese stew with Iraqi bread. (1-2 Persons)",
+     "descriptionAr": "حمسة بيض وطماطم مع جبن كريمي وصمون عراقي",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "بيض، حليب (ألبان)، غلوتين (قمح)",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Chicken Liver With Pomegranate",
+     "nameAr": "كبدة مع دبس الرمان",
+     "description": "Chicken liver hamsa with Iraqi spices and pomegranate molasses (1-2 Persons)",
+     "descriptionAr": "حمسة كبدة دجاج بالبهارات العراقية ودبس الرمان",
+     "price": 52.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Makhlama",
+     "nameAr": "أومليت باللحم (مخلمة)",
+     "description": "Makhlema (beef Meat Omlette). (1-2 persons)",
+     "descriptionAr": "مخلمة (أومليت باللحم بقر)",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "بيض",
+     "allergenHas": [
+      "egg"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Tashreeb With Egg",
+     "nameAr": "تشريب باقلاء بالدهن والبيض",
+     "description": "Iraqi bread topped with Bakela sauce ,arabic gee and fried egg. (1-2 Persons)",
+     "descriptionAr": "تشريب خبز عراقي وباقلاء بالدهن العربي والبيض المقلي",
+     "price": 52.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (خبز)، بيض، باقلاء، حليب (دهن حر/سمن)",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "legumes",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Falafel",
+     "nameAr": "فلافل عراقي",
+     "description": "Iraqi falafel (1-2 persons)",
+     "descriptionAr": "فلافل عراقي تقليدي",
+     "price": 38.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "سمسم (طحينة)",
+     "allergenHas": [
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Fried Egg",
+     "nameAr": "بيض عيون",
+     "description": "Fried Egg",
+     "descriptionAr": "بيض عيون مقلي",
+     "price": 15.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "بيض",
+     "allergenHas": [
+      "egg"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Kiri Kahi Puff",
+     "nameAr": "فطيرة كاهي بالكيري",
+     "description": "Kiri Kahi Puff (1-2 Persons)",
+     "descriptionAr": "فطيرة كاهي محشوة بجبن الكيري",
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (ألبان)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Nawashef Platter",
+     "nameAr": "نواشف عراقية",
+     "description": "Mix fried plater (Potato, Eggplant, kebab Oroog, potato kobba, kobba Teman ) (2-3 Persons)",
+     "descriptionAr": "صحن مقالي (بطاطا، باذنجان، كباب عروق، كبة بطاطا، كبة تمن)",
+     "price": 85.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، بيض",
+     "allergenHas": [
+      "egg",
+      "gluten"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Fried Tomatoes",
+     "nameAr": "طماطم مقلي",
+     "description": "Fried tomatoes (1-2 persons)",
+     "descriptionAr": "صحن طماطم مقلي",
+     "price": 15.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Gors Tabi (Crepes)",
+     "nameAr": "قرص طابي",
+     "description": "Five pieces of crepes, flavored with saffron and cardamom, served with saffron sauce",
+     "descriptionAr": "خمس قطع من العجينة المحلاة والمعطرة بنكهة الزعفران والهيل ويقدم مع صوص الزعفران",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، بيض، حليب",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Foul Mudames",
+     "nameAr": "فول مدمس",
+     "description": "Foul Mudames with our special sauce",
+     "descriptionAr": "فول مطحون بصلصتنا الخاصة",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "سمسم (طحينة)، بقوليات (فول)",
+     "allergenHas": [
+      "legumes",
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Big Kahi Safiha",
+     "nameAr": "صفيحة الكاهي الضخمة",
+     "description": "Your choice of kahi with cheese or kahi with zaater",
+     "descriptionAr": "إختيارك من كاهي مع جبن أو كاهي مع الزعتر",
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (ألبان)، سمسم (في حال الزعتر)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [
+      "sesame"
+     ],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Kabab Nakhi",
+     "nameAr": "كباب نخي",
+     "description": "Red onion , white onion, potato , carrot , green chilli , capsicum , herbs, our special spices",
+     "descriptionAr": "بصل أحمر، بصل أبيض، بطاطا، جزر، فلفل بارد، فلفل حار، الأعشاب وتوابلنا الخاصة",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (دقيق الحمص/القمح)",
+     "allergenHas": [
+      "gluten"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    }
+   ]
+  },
+  {
+   "id": "appetizer-cold-and-hot",
+   "name": "Appetizer Cold & Hot",
+   "nameAr": "مقبلات باردة وساخنة",
+   "note": null,
+   "dishes": [
+    {
+     "name": "Mix Appetizer",
+     "nameAr": "مقبلات مشكل",
+     "description": "Tabola , rocca , sweet corn , olives , grilled salad, humus,eggplant mutable, special salad",
+     "descriptionAr": "تبولة، جرجير، ذرة، زيتون حار، سلطة مشوية، حمص، متبل باذنجان وسلطة خاصة",
+     "price": 75.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "سمسم (طحينة)، غلوتين (برغل/صمون)",
+     "allergenHas": [
+      "gluten",
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Garden Salad",
+     "nameAr": "سلطة الحديقة العراقية",
+     "description": "Special Sauce, Tomato and Onion, Corn, Sammon, Basil, Chickpeas",
+     "descriptionAr": "صلصة خاصة، طماطم وبصل، ذرة، صمون وريحان، لبلبي",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (صمون/قمح)",
+     "allergenHas": [
+      "gluten"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Tabboula Salad",
+     "nameAr": "سلطة تبولة",
+     "description": "Tabbouleh salad mixed with parsley, bulgur and lemon Topped with shopped tomato",
+     "descriptionAr": "سلطة تبولة مخلوطة مع بقدونس وبرغل وليمون من فوق طماطم مقطعة",
+     "price": 32.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (برغل)",
+     "allergenHas": [
+      "gluten"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Rocca Salad",
+     "nameAr": "سلطة جرجير",
+     "description": "Rocca Salad with onions, cherry tomatoes, sumac, lemon slices and served with lemon sauce (1 Person)",
+     "descriptionAr": "سلطة جرجير مع بصل وبندورة كرزية وسوماك وشرائح ليمون وتقدم مع صوص ليمون",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Hummus",
+     "nameAr": "حمص بطحينة",
+     "description": "Hummus (1-2 Persons)",
+     "descriptionAr": "حمص بطحينة تقليدي",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "سمسم (طحينة)",
+     "allergenHas": [
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Special Iraqi Mutabel",
+     "nameAr": "متبل عراقي خاص",
+     "description": "A type of traditional Iraqi appetizer consisting of onions, tomatoes, and tahini (1-2 Persons)",
+     "descriptionAr": "نوع من المقبلات العراقية القديمة يتكون من البصل والطماطم والطحينية (سمكة حارة)",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "سمسم (طحينة)",
+     "allergenHas": [
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Beetroot Salad",
+     "nameAr": "سلطة الشمندر",
+     "description": null,
+     "descriptionAr": "سلطة الشمندر الطازجة",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Eggplant Mutabel",
+     "nameAr": "متبل باذنجان",
+     "description": "Eggplant mutabel (1-2 Persons)",
+     "descriptionAr": "متبل باذنجان مشوي بالطحينة",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "سمسم (طحينة)",
+     "allergenHas": [
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Pickle",
+     "nameAr": "طرشي عراقي مخللات",
+     "description": "Iraqi Pickle (1-2 Persons)",
+     "descriptionAr": "طرشي عراقي مخللات متنوعة",
+     "price": 12.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خردل (قد يحتوي)",
+     "allergenHas": [],
+     "allergenMay": [
+      "mustard"
+     ],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Oroog",
+     "nameAr": "صحن عروق طاوة",
+     "description": "Oroog is made with ground beef, flour, eggs, minced veggies, herbs, and spices (1-2 Persons)",
+     "descriptionAr": "كباب عروق (لحم مفروم والدقيق والبيض والخضار والأعشاب والتوابل)",
+     "price": 52.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (دقيق)، بيض",
+     "allergenHas": [
+      "egg",
+      "gluten"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Lentil Soup",
+     "nameAr": "شوربة عدس",
+     "description": "Our special lentil soup",
+     "descriptionAr": "شوربة عدس العراقية الخاصة بنا",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (في حال التقديم مع الخبز المحمص)",
+     "allergenHas": [],
+     "allergenMay": [
+      "gluten"
+     ],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Boiled Chickpeas",
+     "nameAr": "لبلبي تسالي صحن",
+     "description": "Boiled chickpeas with Iraqi spices (1 Person)",
+     "descriptionAr": "حمص مسلوق بالبهارات العراقية",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Boiled Bakela",
+     "nameAr": "باقلاء تسالي صحن",
+     "description": "Boiled broad beans with Iraqi spices (1 person)",
+     "descriptionAr": "فول مسلوق مع البهارات العراقية",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "باقلاء (بقوليات)",
+     "allergenHas": [
+      "legumes"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Spring Roll",
+     "nameAr": "سبرينق رول عراقي",
+     "description": "Choice of spinach or cheese and meat spring roll -4 pcs (1-2 persons)",
+     "descriptionAr": "إختيار سبرينغ رول (سبانخ أو الجبن أو لحم) 4 قطع",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (في حال الجبن)",
+     "allergenHas": [
+      "gluten"
+     ],
+     "allergenMay": [
+      "milk"
+     ],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Samosa Mix",
+     "nameAr": "سمبوسة مشكلة",
+     "description": "Your choice of five pieces of sambousa (samosas), meat, kiri , cheese, spinach",
+     "descriptionAr": "إختيارك لخمس حبات سمبوسة (لحم، جبن كيري، سبانخ)",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (جبن كيري)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Burgul Kobba",
+     "nameAr": "صحن كبة برغل",
+     "description": "Burgul Kubba ( Burgul stuffed with ground beef and Iraqi spices ) (1 Persons)",
+     "descriptionAr": "كبة البرغل (برغل ناعم وحشوة اللحم البقري المفروم بالبهارات العراقية)",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (برغل)",
+     "allergenHas": [
+      "gluten"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Rice Kobba",
+     "nameAr": "صحن كبة حلب",
+     "description": "Rice kobba filled with seasoned ground meat, almonds and Iraqi spices. (1 Persons)",
+     "descriptionAr": "كبة الأرز محشوة باللحم المفروم المتبل باللوز والبهارات العراقية",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "مكسرات (لوز)",
+     "allergenHas": [
+      "nuts"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Potato Kobba",
+     "nameAr": "صحن كبة بالبطاطا",
+     "description": "Potato Kubba (Mashed potato stuffed with minced beef and Iraqi spices) (1 Persons)",
+     "descriptionAr": "كبة البطاطس (بطاطا مهروسة محشوة باللحم المفروم والبهارات العراقية)",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من الغلوتين الشائع (حسب المكونات)",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": true
+    },
+    {
+     "name": "French Fries",
+     "nameAr": "بطاطا مقلية",
+     "description": "French fries (1 Person)",
+     "descriptionAr": "بطاطا مقلية مقرمشة",
+     "price": 18.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "French Fries With Cheese",
+     "nameAr": "بطاطا مقلية مع جبنة",
+     "description": "French fries with cheese (1-2 Persons)",
+     "descriptionAr": "بطاطا مقلية مقرمشة مع جبنة ذائبة",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (ألبان)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Fried Eggplant",
+     "nameAr": "صحن باذنجان مقلي",
+     "description": null,
+     "descriptionAr": "صحن باذنجان مقلي",
+     "price": 15.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Fried Potatos",
+     "nameAr": "صحن بطاطا مقلية",
+     "description": "Fried Potato",
+     "descriptionAr": "صحن بطاطا مقلية",
+     "price": 15.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    }
+   ]
+  },
+  {
+   "id": "lunch-and-dinner",
+   "name": "Lunch And Dinner",
+   "nameAr": "الغذاء والعشاء",
+   "note": null,
+   "dishes": [
+    {
+     "name": "beef lamb kozi",
+     "nameAr": "قوزي لحم خروف",
+     "description": "Slow-cooked lamb shoulder , prepared with our special spices and aromatics for five hours, served with fragrant fluffy white rice and accompanied by a signature sauce.",
+     "descriptionAr": "كتف الخروف المطبوخ بعناية لمدة 5 ساعات مع بهاراتنا الخاصة والمطيبات يقدم مع الأرز الأبيض النثري المنكه وصلصة خاصة",
+     "price": 420.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "مكسرات (لوز/صنوبر للتزيين)، حليب (سمن)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [
+      "nuts"
+     ],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi chicken Kas",
+     "nameAr": "قص عراقي",
+     "description": "A large skewer of chicken marinated in the Iraqi style, served with two kind of rice, French fries, spicy salad, and accompanied by a signature sauce.",
+     "descriptionAr": "سيخ كبير من الدجاج المتبل بالطريقة العراقية مع نوعين من الأرز، بطاطا مقلية، سلطة حارة، وصلصة خاصة",
+     "price": 128.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، خردل/حليب (في التتبيلة)",
+     "allergenHas": [
+      "gluten",
+      "milk",
+      "mustard"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Badaoui Chicken",
+     "nameAr": "بداوي دجاج",
+     "description": "White rice with our special spices served with quarter chicken accompanied by yogurt and our special red sauce",
+     "descriptionAr": "أرز أبيض مع بهاراتنا الخاصة مع ربع دجاج ويقدم مع الروب وصوص أحمر خاص (تحضير 20-30 دقيقة)",
+     "price": 78.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (روب/زبادي)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Badaoui Beef",
+     "nameAr": "بداوي لحم",
+     "description": "White rice with our special spices, served with a piece of lamb, accompanied by yogurt and our special red sauce",
+     "descriptionAr": "رز أبيض مع بهاراتنا الخاصة وقطعة لحم خروف ويقدم مع روب وصوص أحمر خاص",
+     "price": 88.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (روب/زبادي)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Dolma",
+     "nameAr": "دولمة عراقية (باللحم والريش)",
+     "description": "Dolma is a traditional Iraqi dish from the Iraqi cuisine. It consists of 2 pieces of Lamb chops, minced meat, rice, chopped vegetables and stuffed with vegetables. (2-3 Persons)",
+     "descriptionAr": "دولمة أكلة عراقية تقليدية متكونة من لحم مفروم والأرز والخضار المفرومة محشية بالخضار وحبتين ريش غنم",
+     "price": 120.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من الغلوتين الشائع",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": true
+    },
+    {
+     "name": "Baghdadi Tray",
+     "nameAr": "الصينية البغدادية",
+     "description": "The Baghdadi tray consists of dolma, 3 skewers of iraqi kabab beef , 5 pieces of oroog, 2 rice kobba , 2 burgul kobba, 2 potato kobba, fried potatos, fried eggplant, kuboos oroog, Iraqi pickles (torshi)",
+     "descriptionAr": "تتكون من دولمة، 3 أسياخ كباب لحم، 5 قطع عروق طاوة، 2 كبة حلب، 2 كبة برغل، 2 كبة بطاطا، بطاطا مقلية، باذنجان مقلي، خبز عروق، وطرشي عراقي",
+     "price": 340.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح/برغل)، بيض، مكسرات (لوز الكبة)",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "nuts"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Chicken In Clay Pot",
+     "nameAr": "حمسة دجاج على الفخارة",
+     "description": "Sautéed chicken with vegetables cooked in a tomato sauce flavored with our special spices, topped with bread, and served with three types of rice (red rice, dill rice, and white rice)",
+     "descriptionAr": "حمسة دجاج مع خضار مطبوخة في صلصة طماطم المتبلة بتوابلنا الخاصة ومغطاة بخبز وتقدم مع 3 أنواع من التمن (أحمر، باقلاء شبت، وأبيض)",
+     "price": 98.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (خبز الفخار)، بقوليات (باقلاء)",
+     "allergenHas": [
+      "gluten",
+      "legumes"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Chicken In Clay Pot ( family Size )",
+     "nameAr": "حمسة دجاج على الفخارة (عائلي)",
+     "description": null,
+     "descriptionAr": "حمسة دجاج مع خضار مطبوخة في صلصة طماطم المتبلة بتوابلنا الخاصة ومغطاة بخبز وتقدم مع 3 أنواع من التمن (أحمر، باقلاء شبت، وأبيض)",
+     "price": 135.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (خبز الفخار)، بقوليات (باقلاء)",
+     "allergenHas": [
+      "gluten",
+      "legumes"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Qatari Majboos With Chicken",
+     "nameAr": "مجبوس قطري بالدجاج",
+     "description": "Carefully cooked rice with authentic Qatari spices, served with a quarter of marinated oven-grilled chicken, accompanied by Dakoos sauce and laben",
+     "descriptionAr": "أرز مطهو بعناية بالتوابل القطرية الأصيلة مع ربع دجاج متبل ومشوي في الفرن، يقدم مع الدقوس والروب",
+     "price": 78.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (روب/زبادي)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Qatari Majboos With Chicken( family size )",
+     "nameAr": "مجبوس قطري بالدجاج (عائلي)",
+     "description": "Carefully cooked rice with authentic Qatari spices, served with half a marinated oven-grilled chicken, accompanied by Dakoos sauce and laban.",
+     "descriptionAr": "أرز مطهو بعناية بالتوابل القطرية الأصيلة مع نصف دجاج متبل ومشوي في الفرن، يقدم مع الدقوس والروب",
+     "price": 105.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (روب/زبادي)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Chicken Makhluba",
+     "nameAr": "مقلوبة دجاج",
+     "description": "Iraqi chicken maqluba consists of chicken, rice, eggplant, potatoes, tomatoes, and cold green peppers with Iraqi spices. It is a dish with high nutritional value and the favorite dish in Iraq and it's served with yogurt (1- 2 Persons)",
+     "descriptionAr": "مقلوبة دجاج عراقية تتكون من الدجاج والأرز والباذنجان والبطاطا والطماطم والفلفل مع البهارات العراقية ولبن زبادي جانبي",
+     "price": 78.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (لبن زبادي)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "white maccarona with chicken",
+     "nameAr": "معكرونة بيضاء بالدجاج",
+     "description": "White sauce pasta and chicken (Available only after 12PM) (1-2 Persons)",
+     "descriptionAr": "معكرونة بالصلصة البيضاء والدجاج والجبن (متوفر بعد 12 ظهراً)",
+     "price": 68.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (باستا)، حليب (صلصة بيضاء وجبن)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Makroonat Ahlna",
+     "nameAr": "معكرونة أهلنا",
+     "description": "Makroonat ahlna Red sauce pasta with minced beef (Available only after 12PM) (1-2 Persons)",
+     "descriptionAr": "معكرونة بالصلصة الحمراء واللحم المفروم (متوفر بعد 12 ظهراً)",
+     "price": 65.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (باستا)",
+     "allergenHas": [
+      "gluten"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Chicken Hamsa With Mushroom",
+     "nameAr": "حمسة دجاج مشروم",
+     "description": "Chicken hamsa with cooking cream, mushrooms and truffle oil served in pottery covered with kahi dough (1- 2 Persons)",
+     "descriptionAr": "حمسة دجاج بكريمة الطبخ والمشروم وزيت الترافل تقدم في فخارة مغطاة بعجينة الكاهي",
+     "price": 75.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (كريمة طهي)، غلوتين (عجينة الكاهي)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Tipsy Eggplant Meat Kibbeh",
+     "nameAr": "صينية تيبسي باذنجان بكبة اللحم",
+     "description": "(ykhina) Tapsi baked Iraqi eggplant tray with Iraqi beef kibbeh. (1 -2 Persons)",
+     "descriptionAr": "(يخنة) صينية باذنجان عراقي مخبوز بالتبسي مع كبة العراقية باللحم",
+     "price": 75.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (كبة برغل/قمح)",
+     "allergenHas": [
+      "gluten"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Tipsy Eggplant With Chicken",
+     "nameAr": "باذنجان تيبسي مع الدجاج",
+     "description": "(Ykhina) Iraqi eggplant baked in Tipsi with chicken (1-2 Persons)",
+     "descriptionAr": "(يخنة) صينية مع باذنجان عراقي مخبوز بالتبسي مع الدجاج",
+     "price": 75.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من الغلوتين الشائع",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": true
+    },
+    {
+     "name": "Bagela Rice",
+     "nameAr": "تمن باجله",
+     "description": "Rice cooked with green broad beans and herbs",
+     "descriptionAr": "رز مطبوخ بالباقلاء الخضراء والأعشاب الشبت",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "بقوليات (باقلاء)",
+     "allergenHas": [
+      "legumes"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Red Rice",
+     "nameAr": "تمن أحمر",
+     "description": "Red rice with our special spices",
+     "descriptionAr": "رز أحمر بتوابلنا العراقية الخاصة",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Kabsa Rice",
+     "nameAr": "تمن كبسة",
+     "description": "Rice with vegetables and our special spices",
+     "descriptionAr": "رز مع خضار وتوابل الكبسة الخاصة",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Kahi Vegetable Pizza",
+     "nameAr": "بيتزا كاهي بالخضار",
+     "description": "Kahi pizza with vegetable and cheese, Mushroom,Olives,Capsicum. (1-2 Persons)",
+     "descriptionAr": "بيتزا بعجينة الكاهي مع الخضار والجبن والفطر والزيتون والفلفل",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (أجبان)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Kahi Chicken Pizza",
+     "nameAr": "بيتزا كاهي بالدجاج",
+     "description": "Kahi pizza with chicken, mushroom and truffles (1-2 Persons)",
+     "descriptionAr": "بيتزا بعجينة الكاهي مع الدجاج والمشروم والترافل",
+     "price": 49.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (أجبان)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Beef Burger",
+     "nameAr": "برجر عراقي (لحم)",
+     "description": "Beef ,lettuce ,pickles, tomato , special sauce (Available after 12PM) (1 Person)",
+     "descriptionAr": "لحم، خس، طرشي، طماطم، صلصة خاصة (متوفر بعد 12 ظهراً)",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (خبز البرجر)، بيض/خردل (في الصلصة)",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "mustard"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Chicken Burger",
+     "nameAr": "برجر عراقي (دجاج)",
+     "description": "Chicken , lettuce ,pickles, tomato , special sauce (Available after 12 PM) ( 1Person)",
+     "descriptionAr": "دجاج، خس، طرشي، طماطم، صلصة خاصة (متوفر بعد 12 ظهراً)",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (خبز البرجر)، بيض/خردل (في الصلصة)",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "mustard"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Kahi Cheese Pizza",
+     "nameAr": "بيتزا كاهي الجبن",
+     "description": "Kahi cheese Pizza with cheese and oregano (1-2 Persons)",
+     "descriptionAr": "بيتزا بعجينة الكاهي بالجبن والأوريجانو",
+     "price": 41.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (أجبان)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "iraqi dolma with chicken",
+     "nameAr": "دولمة عراقية بالدجاج",
+     "description": "Dolma: A traditional Iraqi dish made of vegetables stuffed with rice and minced vegetables, served with half a chicken. (Serves 1–2)",
+     "descriptionAr": "دولمة أكلة عراقية تقليدية متكونة من الأرز والخضار المفرومة محشية بالخضار ونصف دجاجة",
+     "price": 120.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من الغلوتين الشائع",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": true
+    }
+   ]
+  },
+  {
+   "id": "iraqi-grill",
+   "name": "Iraqi Grill",
+   "nameAr": "المشاوي العراقية",
+   "note": {
+    "en": "From 12:00 noon",
+    "ar": "من الساعة ١٢ ظهراً"
+   },
+   "dishes": [
+    {
+     "name": "Grilled Lamb Chops",
+     "nameAr": "ريش مشوية",
+     "description": "4 lamps chops with salad and chips",
+     "descriptionAr": "أربع قطع ريش غنم مع سلطة وبطاطا مقلية",
+     "price": 95.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Gaimer W Kahi Special Kabsa Chicken",
+     "nameAr": "كبسة قيمر وكاهي الخاصة مع الدجاج",
+     "description": "Rice cooked in our special way with grilled chicken and served with special yoghurt",
+     "descriptionAr": "رز مطبوخ بطريقتنا الخاصة مع دجاج مشوي ويقدم مع روب خاص",
+     "price": 78.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (روب/زبادي)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Kabab Chicken",
+     "nameAr": "كباب عراقي (دجاج)",
+     "description": "4 Skewers of chicken kabab with salad and Fries",
+     "descriptionAr": "أربع أسياخ كباب دجاج مع سلطة وبطاطا مقلية",
+     "price": 95.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Kabab Beef",
+     "nameAr": "كباب عراقي (لحم)",
+     "description": "4 skewers of beef kabab with salad and Fries",
+     "descriptionAr": "أربع أسياخ كباب لحم مع سلطة وبطاطا مقلية",
+     "price": 105.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Special Chicken Tikka",
+     "nameAr": "تكة دجاج بالطريقة العراقية",
+     "description": "4 Skewers of Chicken Tikka served with salad and Fries",
+     "descriptionAr": "أربع أسياخ تكة دجاج مع سلطة وبطاطا مقلية",
+     "price": 95.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (في تتبيلة اللبن)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Special Beef Tikka",
+     "nameAr": "تكة لحم بالطريقة العراقية",
+     "description": "3 skewers of Tikka beef served with salad and Fries",
+     "descriptionAr": "ثلاث أسياخ تكة لحم مع سلطة وبطاطا مقلية",
+     "price": 105.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Mix Iraqi Grill Family Set",
+     "nameAr": "مشاوي عراقي مشكل",
+     "description": "3 Skewers of Beef kabab, 3 skewers of Chicken kabab, 2 skewers of Tikka beef, 3 skewers of chicken Tikka , 2 pieces of Special chicken, 3 pieces of Lamb chops, fried potatoes, with your choice of two types of rice (Broad bean rice, Red rice, Kabsa rice), served with Iraqi Laban.",
+     "descriptionAr": "3 أسياخ كباب لحم، 3 كباب دجاج، 2 سيخ تكا لحم، 3 أسياخ تكا دجاج، 2 قطعة دجاج خاص، 3 قطع ريش، بطاطا مقلية، اختيارك لنوعين من الرز (باقلاء، أحمر، كبسة) مع لبن عراقي",
+     "price": 340.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (لبن)، بقوليات (رز باقلاء)",
+     "allergenHas": [
+      "legumes",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Mix Grill - Medium",
+     "nameAr": "مشاوي عراقي مشكل - وسط",
+     "description": "2 Skewers of Beef kabab, 2 skewers of Chicken kabab, 1 skewer of Tikka beef, 2 skewers of chicken Tikka , 1 piece of Special chicken, 1 piece of Lamb chops, fried potatoes, with your choice of two types of rice (Broad bean rice, Red rice, Kabsa rice), served with special Yogurt.",
+     "descriptionAr": "سيخين كباب لحم، سيخين كباب دجاج، سيخ تكا لحم، سيخين تكا دجاج، قطعة ريش، قطعة دجاج سبيشل، بطاطا، اختيارك لنوعين من الرز مع روب",
+     "price": 240.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (روب)، بقوليات (رز باقلاء)",
+     "allergenHas": [
+      "legumes",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Mix Grill - Small",
+     "nameAr": "مشاوي عراقي مشكل - صغير",
+     "description": "1 Skewers of Beef kabab, 1 skewers of Chicken kabab, 1 skewer of Tikka beef, 1 skewers of chicken Tikka, 1 piece of Lamb chops, fried potatoes, with your choice of one types of rice (Broad bean rice, Red rice, Kabsa rice), served with special Yogurt.",
+     "descriptionAr": "سيخ كباب لحم، سيخ كباب دجاج، سيخ تكا لحم، سيخ تكا دجاج، قطعة ريش، بطاطا مقلية، اختيارك لنوع من الرز مع روب",
+     "price": 130.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (روب)، بقوليات (رز باقلاء)",
+     "allergenHas": [
+      "legumes",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    }
+   ]
+  },
+  {
+   "id": "banquet-trays",
+   "name": "Banquet Trays",
+   "nameAr": "صواني العزايم",
+   "note": null,
+   "dishes": [
+    {
+     "name": "MDIEUM MIX GRILL TAKAWAY",
+     "nameAr": "مشاوي مشكل وسط سفري",
+     "description": "Enjoy a luxurious selection of three delicious rice varieties: fragrant Baqella rice, carefully seasoned yellow kabsa rice, and light, balanced white kabsa rice. They are served with a satisfying assortment of expertly prepared grills: 4 Iraqi beef kebab skewers, 4 chicken kebab skewers, 2 perfectly grilled chicken tikka …",
+     "descriptionAr": "3 أنواع رز (باقلاء، كبسة أصفر، أبيض)، 4 أسياخ كباب لحم، أسياخ كباب دجاج، 2 سيخ تكا دجاج، 2 سيخ تكا لحم",
+     "price": 325.0,
+     "priceConflict": null,
+     "truncated": true,
+     "allergenText": "حليب (روب)، بقوليات (باقلاء)",
+     "allergenHas": [
+      "legumes",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "BIG MIX GRILL TAKEWAY",
+     "nameAr": "مشاوي مشكل كبير سفري",
+     "description": "A feast bursting with unforgettable flavor 🔥 The perfect choice for lovers of generosity and rich taste, bringing together three delicious rice varieties: rich baghala rice, spice-filled yellow kabsa rice, and perfectly balanced white kabsa rice. Topped with a …",
+     "descriptionAr": "وليمة عامرة مع تشكيلة 3 أنواع رز ومشويات مشكلة على الفحم",
+     "price": 590.0,
+     "priceConflict": null,
+     "truncated": true,
+     "allergenText": "حليب (روب)، بقوليات (باقلاء)",
+     "allergenHas": [
+      "legumes",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Mixed Grill TRAY",
+     "nameAr": "صينية مشاوي مشكل (عزائم)",
+     "description": "A special feast that brings together the most delicious selections on one platter; a wonderful variety of rice, charcoal-grilled mixed meats, and appetizers for a rich and perfect experience for gatherings and occasions. It includes four types of rice: white rice, red rice, kabsa rice, and baghala rice, along with 8 skewers of beef…",
+     "descriptionAr": "وليمة مميزة: 4 أنواع رز (أبيض، أحمر، كبسة، باقلاء)، 8 أسياخ كباب لحم، 8 كباب دجاج، 6 تكا لحم، 6 تكا دجاج، 2 دجاج ماكينة، حمص ومقبلات",
+     "price": 850.0,
+     "priceConflict": null,
+     "truncated": true,
+     "allergenText": "حليب (روب)، سمسم (طحينة)، بقوليات (باقلاء)",
+     "allergenHas": [
+      "legumes",
+      "milk",
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Majlis Mixed Grill TRAY",
+     "nameAr": "صينية مشاوي المجلس",
+     "description": "An unforgettable majlis feast bursting with flavor 🔥 A luxurious and complete platter that brings together the finest tastes in one dish. It includes four types of rice: baghala rice, red rice, kabsa rice, and white rice, along with 15 skewers of beef kebab, 15 skewers of …",
+     "descriptionAr": "وليمة مجلس فاخرة: 4 أنواع رز (باقلاء، أحمر، كبسة، أبيض)، 15 سيخ كباب لحم، 15 سيخ كباب دجاج، 15 سيخ تكا لحم، 6 أسياخ تكا دجاج، 2 دجاجة ماكينة كاملة، ومقبلات",
+     "price": 1450.0,
+     "priceConflict": null,
+     "truncated": true,
+     "allergenText": "حليب (روب/لبن)، سمسم (طحينة)، بقوليات (باقلاء)",
+     "allergenHas": [
+      "legumes",
+      "milk",
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    }
+   ]
+  },
+  {
+   "id": "gaimer-w-kahi-boxes",
+   "name": "Gaimer W Kahi Boxes",
+   "nameAr": "بوكسات قيمر وكاهي",
+   "note": null,
+   "dishes": [
+    {
+     "name": "Kahi Pie Box",
+     "nameAr": "بوكس فطاير كاهي",
+     "description": "Mixed Kahi pies 10 pieces (2 kahi akkawi cheese and mozzarella, 2 Kahi mixed cheese akkawi, mozzarella, kashkaval, cheddar, halloumi, 2 kahi with meat, 2 kahi with zaatar, and 2 kahi with spinach) (3-4 Persons)",
+     "descriptionAr": "فطاير كاهي مشكلة 10 قطع (2 جبنة عكاوي وموزاريلا، 2 جبنة مشكلة، 2 لحم، 2 زعتر، 2 سبانخ)",
+     "price": 95.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (قمح)، حليب (أجبان متنوعة)، سمسم",
+     "allergenHas": [
+      "gluten",
+      "milk",
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Mixed Kunafa Box",
+     "nameAr": "بوكس كنافة مشكلة",
+     "description": "Mixed kunafa 15 pieces (3 kunafa with cream, 4 kunafa with almonds, pistachios, cashews, 4 kunafa with Nutella, and 4 kunafa with kiri sauce) with your choice of sauce honey or shera. (3-4 Persons)",
+     "descriptionAr": "كنافة مشكلة 15 قطعة (3 قيمر، 4 لوز وفستق وكاجو، 4 نوتيلا، 4 كيري مع عسل أو شيرة)",
+     "price": 85.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، حليب، مكسرات (فستق/لوز/كاجو/بندق)",
+     "allergenHas": [
+      "gluten",
+      "milk",
+      "nuts"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    }
+   ]
+  },
+  {
+   "id": "pastry",
+   "name": "PASTRY",
+   "nameAr": "حلويات",
+   "note": null,
+   "dishes": [
+    {
+     "name": "Tiramisu",
+     "nameAr": "تيراميسو",
+     "description": "Tiramisu with gaimer",
+     "descriptionAr": "التيراميسو بالقيمر",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، بيض، حليب",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "WHIT FOREST",
+     "nameAr": "كيك الغابة البيضاء",
+     "description": "Elegant cake with soft layers and rich cream for a perfectly balanced, delicious flavor.",
+     "descriptionAr": "كيكة فاخرة بطبقات ناعمة وكريمة غنية بطعم متوازن ولذيذ",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، بيض، حليب",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Black Forest Cake",
+     "nameAr": "كيكة الغابة السوداء",
+     "description": "Chocolate cake with cream and cherries, layered for a rich and refreshing taste.",
+     "descriptionAr": "كيك شوكولاتة بطبقات كريمة وكريز",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، بيض، حليب",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "CHOCLATE CAKE",
+     "nameAr": "كيك الشكولاته",
+     "description": "Luxurious chocolate cake, rich in flavor and wonderfully indulgent.",
+     "descriptionAr": "كيك شوكولاتة فاخر، غني بطعمه",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، بيض، حليب، صويا",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk",
+      "soy"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Cheesecake with Gaimer (Cherry)",
+     "nameAr": "شيز كيك بالقيمر (كرز)",
+     "description": "Our special cheesecake made with Iraqi gaimer and cherries",
+     "descriptionAr": "شيزكيك على طريقتنا الخاصة بالقيمر العراقي بطعم الكرز",
+     "price": 38.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، حليب (قيمر وجبن)، بيض",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Dubai chocolate",
+     "nameAr": "شوكولاة دبي",
+     "description": "A luxurious dessert with a distinctive chocolate character, rich flavor, and an irresistible taste, cooked with gaimer cream.",
+     "descriptionAr": "حلى فاخر بطابع شوكولاتة مميز بطعم غني ومذاق لا يقاوم مطبوخ بكريمة القيمر",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين (كنافة)، حليب، مكسرات (فستق)، صويا",
+     "allergenHas": [
+      "gluten",
+      "milk",
+      "nuts",
+      "soy"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Chocolate And Strawberry Kahi Puff",
+     "nameAr": "فطيرة الكاهي بالشوكولاتة والفراولة",
+     "description": null,
+     "descriptionAr": "فطيرة الكاهي المقرمشة بالشوكولاتة والفراولة",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، حليب، صويا (في الشوكولاتة)",
+     "allergenHas": [
+      "gluten",
+      "milk",
+      "soy"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Kunafa With Gaimer",
+     "nameAr": "كنافه بالقيمر العراقي",
+     "description": "Kunafa with gaimer and pistachio served with shera",
+     "descriptionAr": "كنافة بالقيمر والفستق تقدم مع شيرة",
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، حليب (قيمر)، مكسرات (فستق)",
+     "allergenHas": [
+      "gluten",
+      "milk",
+      "nuts"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iraqi Cheese Kunafa",
+     "nameAr": "كنافة عراقية بالجبن",
+     "description": null,
+     "descriptionAr": "كنافة عراقية تقليدية محشوة بالجبن",
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، حليب (أجبان)",
+     "allergenHas": [
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Molasses & Dates",
+     "nameAr": "دبس وراشي",
+     "description": "Molasses & dates with tahini sauce",
+     "descriptionAr": "دبس وراشي مع التمر والسمسم",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "سمسم (راشي)",
+     "allergenHas": [
+      "sesame"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Luqaimat",
+     "nameAr": "لقيمات",
+     "description": "Choose your luqaimat: cardamom & saffron, Nutella, or Kiri (cream cheese). 8 pieces",
+     "descriptionAr": "اختيارك لـ لقيمات هيل وزعفران أو نوتيلا أو كيري (8 حبات)",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، حليب، مكسرات (نوتيلا تحتوي بندق)",
+     "allergenHas": [
+      "gluten",
+      "milk",
+      "nuts"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Chia Seeds With Fruits",
+     "nameAr": "حلاوة الشيا بالفواكه",
+     "description": "It contains Chia seeds, Condensed milk, Milk, Cream & fruits",
+     "descriptionAr": "يحتوي على بذور الشيا والحليب المكثف والحليب والقشدة والفواكه",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (ألبان)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Gaimer W Kahi Special Crepe",
+     "nameAr": "كريب قيمر وكاهي الخاص",
+     "description": "5 Pcs of crepes One scoop of Gaimer ice cream and your choice of Saffron sauce ,Pistachio sauce or Chocolate sauce",
+     "descriptionAr": "5 قطع كريب مع آيس كريم قيمر وخياركم من صوص الزعفران، الفستق أو الشوكولاتة",
+     "price": 45.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، بيض، حليب، مكسرات (في صوص الفستق)",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk",
+      "nuts"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Cheese Sweet with Gaimer",
+     "nameAr": "حلاوة الجبن بالقيمر",
+     "description": "Halawet el Jibn stuffed with gaimer and sweetened with sugar syrup",
+     "descriptionAr": "حلاوة الجبن محشية بالقيمر ومحلاة بالشيرة",
+     "price": 35.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (قيمر وجبن)، غلوتين (سميد)، مكسرات (فستق)",
+     "allergenHas": [
+      "gluten",
+      "milk",
+      "nuts"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Dates Cake",
+     "nameAr": "كيكة التمر",
+     "description": "Dates cake with ice cream caimer and caramel",
+     "descriptionAr": "كيكة التمر مع آيس كريم القيمر وصلصة الكراميل",
+     "price": 38.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "غلوتين، بيض، حليب",
+     "allergenHas": [
+      "egg",
+      "gluten",
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Rice Pudding",
+     "nameAr": "رز بلبن",
+     "description": null,
+     "descriptionAr": "رز بلبن تقليدي غني",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (ألبان)",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    }
+   ]
+  },
+  {
+   "id": "hot-drinks-and-coffee",
+   "name": "HOT DRINKS & COFFEE",
+   "nameAr": "قهوة ومشروبات ساخنة",
+   "note": null,
+   "dishes": [
+    {
+     "name": "Tea Kettle Small",
+     "nameAr": "قوري شاي مخدر صغير",
+     "description": null,
+     "descriptionAr": "قوري شاي مخدر على الطريقة التقليدية (حجم صغير)",
+     "price": 32.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Big Mukadar Tea Pot With Heater",
+     "nameAr": "قوري چاي مخدر كبير مع سخان",
+     "description": null,
+     "descriptionAr": "قوري شاي مخدر كبير يقدم مع سخان خاص",
+     "price": 75.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Karak Kettle Small",
+     "nameAr": "قوري كرك صغير",
+     "description": null,
+     "descriptionAr": "قوري شاي كرك غني بالبهارات والهيل (حجم صغير)",
+     "price": 32.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Arabic Coffee Big Size",
+     "nameAr": "القهوة العربية حجم كبير",
+     "description": null,
+     "descriptionAr": "دلة قهوة عربية بالهيل والزعفران (حجم كبير)",
+     "price": 75.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Arabic Coffee Medium Size",
+     "nameAr": "قهوة عربية حجم متوسط",
+     "description": null,
+     "descriptionAr": "دلة قهوة عربية بالهيل والزعفران (حجم متوسط)",
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Espresso",
+     "nameAr": "إسبريسو",
+     "description": null,
+     "descriptionAr": "سنجل إسبريسو غني ومكثف",
+     "price": 12.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Double Espresso",
+     "nameAr": "دبل إسبريسو",
+     "description": null,
+     "descriptionAr": "دبل إسبريسو مركز",
+     "price": 14.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Americano",
+     "nameAr": "أمريكانو",
+     "description": null,
+     "descriptionAr": "أمريكانو من أجود أنواع القهوة الإيطالية",
+     "price": 15.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Cappuccino",
+     "nameAr": "كابتشينو",
+     "description": null,
+     "descriptionAr": "كابتشينو غني برغوة الحليب الناعمة",
+     "price": 16.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Flat White",
+     "nameAr": "فلات وايت",
+     "description": null,
+     "descriptionAr": "فلات وايت متوازن بطعم القهوة الغني",
+     "price": 16.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Café Latte",
+     "nameAr": "كافيه لاتيه",
+     "description": null,
+     "descriptionAr": "كافيه لاتيه كلاسيكي",
+     "price": 16.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Spanish Latte",
+     "nameAr": "سبانش لاتيه",
+     "description": null,
+     "descriptionAr": "لاتيه إسباني ممزوج بالحليب المكثف",
+     "price": 16.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Ice Coffee",
+     "nameAr": "آيس كوفي",
+     "description": null,
+     "descriptionAr": "قهوة مثلجة منعشة",
+     "price": 16.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب (حسب الطلب)",
+     "allergenHas": [],
+     "allergenMay": [
+      "milk"
+     ],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Iced Spanish Latte",
+     "nameAr": "آيس سبانش لاتيه",
+     "description": null,
+     "descriptionAr": "Iced Spanish Latte بارد ومنعش",
+     "price": 16.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "حليب",
+     "allergenHas": [
+      "milk"
+     ],
+     "allergenMay": [],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Turkish Coffee",
+     "nameAr": "قهوة تركية",
+     "description": null,
+     "descriptionAr": "Turkish Coffee محضرة بالطريقة التقليدية",
+     "price": 14.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Cinnamon Tea Kettle",
+     "nameAr": "قوري چاي دارسين",
+     "description": null,
+     "descriptionAr": "قوري شاي القرفة / الدارسين المعطر",
+     "price": 55.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Nomi Tea Kettle",
+     "nameAr": "قوري شاي نومي",
+     "description": null,
+     "descriptionAr": "شاي نومي البصرة الأصيل (حجم صغير)",
+     "price": 32.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    }
+   ]
+  },
+  {
+   "id": "fresh-juices-and-mocktails",
+   "name": "Fresh Juices & Mocktails",
+   "nameAr": "عصائر طازجة وموكتيلات",
+   "note": null,
+   "dishes": [
+    {
+     "name": "Fresh Pomegranate Juice",
+     "nameAr": "عصير الرمان طازج",
+     "description": null,
+     "descriptionAr": "عصير رمان طبيعي طازج 100%",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Fresh Orange Juice",
+     "nameAr": "عصير البرتقال",
+     "description": null,
+     "descriptionAr": "عصير برتقال طازج معصور مع الطلب",
+     "price": 20.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Lemonade Juice",
+     "nameAr": "عصير ليمونادا",
+     "description": null,
+     "descriptionAr": "عصير ليمون طازج ومنعش",
+     "price": 20.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Jallab Juice",
+     "nameAr": "عصير جلاب",
+     "description": null,
+     "descriptionAr": "مشروب الجلاب التقليدي",
+     "price": 20.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "مكسرات (صنوبر - اختياري)",
+     "allergenHas": [],
+     "allergenMay": [
+      "nuts"
+     ],
+     "freeCommon": false,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Rosella Plant Juice",
+     "nameAr": "عصير كركديه",
+     "description": null,
+     "descriptionAr": "عصير كركديه طبيعي بارد",
+     "price": 20.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Nomi Basra Juice",
+     "nameAr": "عصير نومي البصرة",
+     "description": null,
+     "descriptionAr": "عصير نومي البصرة البارد المنعش",
+     "price": 20.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Karkade Vimto Cocktail",
+     "nameAr": "كوكتيل كركديه بالفيمتو",
+     "description": "Mint, lemon juice, Vimto, rosella juice.",
+     "descriptionAr": "نعناع، عصير ليمون، فيمتو، وعصير كركديه",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Butterfly",
+     "nameAr": "باترفلاي",
+     "description": "Our special mocktail mixed fresh lemon and vimto with fresh mint.",
+     "descriptionAr": "موكتيل خاص ممزوج بالليمون الطازج والفيمتو والنعناع الطازج",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Layali Bagdad",
+     "nameAr": "ليالي بغداد",
+     "description": "Our special mocktail mixed of passion with rosella and pomegranate juice",
+     "descriptionAr": "موكتيل خاص ممزوج بالباشن فروت مع الكركديه وعصير الرمان",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Cocktail Abu Nawas",
+     "nameAr": "كوكتيل أبو نواس",
+     "description": "Mixed fresh orange juice with black raspberry and jallab",
+     "descriptionAr": "عصير برتقال طازج مشكل مع توت أسود وجلاب",
+     "price": 30.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Blue Mojito",
+     "nameAr": "موهيتو الأزرق",
+     "description": "Mint, lemon juice, blue syrup, sugar syrup, sparkling water.",
+     "descriptionAr": "نعناع، عصير الليمون، بلو لاغون سيروب، سيروب السكر، وماء غازي",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Raspberry Mojito",
+     "nameAr": "موهيتو التوت البري",
+     "description": "Fresh raspberry, mint, lemon juice, raspberry syrup, sugar syrup, sparkling water.",
+     "descriptionAr": "توت بري، نعناع، عصير الليمون، شراب التوت، سيروب السكر، وماء غازي",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Gaimer W Kahi Iced Tea",
+     "nameAr": "آيس تي قيمر وكاهي",
+     "description": "Tea, rosemary, grapefruit, passion fruit.",
+     "descriptionAr": "شاي، إكليل الجبل، جريب فروت، وباشن فروت",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Strawberry Vimto Mojito",
+     "nameAr": "موهيتو الفراولة بالفيمتو",
+     "description": "Strawberry, vimto, lemon, mint, soda water.",
+     "descriptionAr": "فراولة، فيمتو، ليمون، نعناع، وماء غازي",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    }
+   ]
+  },
+  {
+   "id": "soft-drinks-and-water",
+   "name": "Soft Drinks & Water",
+   "nameAr": "مشروبات غازية وماء",
+   "note": null,
+   "dishes": [
+    {
+     "name": "Coca-Cola",
+     "nameAr": "كوكا كولا عادي",
+     "description": null,
+     "descriptionAr": "مشروب غازي كوكاكولا عادي",
+     "price": 12.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Coca-Cola Zero",
+     "nameAr": "كوكا كولا زيرو",
+     "description": null,
+     "descriptionAr": "مشروب غازي كوكاكولا زيرو خالي من السكر",
+     "price": 12.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Fanta",
+     "nameAr": "فانتا",
+     "description": null,
+     "descriptionAr": "مشروب غازي فانتا برتقال",
+     "price": 12.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Sprite",
+     "nameAr": "سبرايت",
+     "description": null,
+     "descriptionAr": "مشروب غازي سبرايت",
+     "price": 12.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Alka Live Water Small",
+     "nameAr": "ماء صغير",
+     "description": null,
+     "descriptionAr": "ماء معدني بحجم صغير",
+     "price": 7.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Sparkling Water 500 Ml",
+     "nameAr": "مياه غازيه 500 مل",
+     "description": null,
+     "descriptionAr": "مياه غازية منعشة 500 مل",
+     "price": 20.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Energy Drink",
+     "nameAr": "مشروب طاقة (ريد بول)",
+     "description": "RedBull",
+     "descriptionAr": "مشروب طاقة ريد بول Red Bull",
+     "price": 25.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Coca Cola Light",
+     "nameAr": "كوكاكولا دايت",
+     "description": null,
+     "descriptionAr": "مشروب غازي كوكاكولا دايت",
+     "price": 12.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    },
+    {
+     "name": "Water Big 750ml",
+     "nameAr": "ماء كبير 750 ملل",
+     "description": null,
+     "descriptionAr": "ماء معدني بحجم كبير 750 مل",
+     "price": 16.0,
+     "priceConflict": null,
+     "truncated": false,
+     "allergenText": "خالٍ من المسببات الشائعة",
+     "allergenHas": [],
+     "allergenMay": [],
+     "freeCommon": true,
+     "glutenFreeOnly": false
+    }
+   ]
+  }
+ ]
+}

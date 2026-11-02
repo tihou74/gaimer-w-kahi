@@ -1,0 +1,282 @@
+/* =============================================================================
+   قيمر وكاهي — الأساس: الخطوط، التهيئة، المكوّنات المشتركة
+   -----------------------------------------------------------------------------
+   الخطوط مُضمَّنة محلّياً لا من CDN: الموقع يعمل على شبكة مجمّع متذبذبة،
+   وخطٌّ من خادم آخر يتركُ النصّ غير مرسوم أو يُرسم بخطّ بديل فيتبدّل
+   التخطيط أمام عين الزائر. ولا تتبّع من طرف ثالث على زوّارك.
+   ============================================================================= */
+
+/* ---------------------------------------------------------------- الخطوط */
+/* `font-display: swap` مقصود: النصّ يُقرأ فوراً بخطّ النظام ثمّ يُستبدل.
+   و`optional` كان سيُهمل الخطّ على الشبكات البطيئة فتخرج العربيّة بخطٍّ
+   لاتيني لا يصلها. */
+@font-face {
+  font-family: 'Aref Ruqaa';
+  src: url('../fonts/ArefRuqaa-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('../fonts/NotoKufiArabic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('../fonts/NotoKufiArabic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('../fonts/NotoKufiArabic-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Amiri';
+  src: url('../fonts/Amiri-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------- التهيئة */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  line-height: 1.75;
+  /* الرسم بالألوان الصحيحة على شاشات الماك */
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* كل مبلغ ورقم في الموقع بأرقام **جدوليّة**: بلا هذا لا تتراصف الفواصل
+   ولا تستطيع العين أن تجمع عموديّاً في قائمة أسعار. */
+.num, .price, time, [data-num] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+img, video, svg { max-width: 100%; display: block; }
+
+/* ⚠ `<picture>` عنصرٌ **سطريٌّ** افتراضاً. وعنصرُ شبكةٍ سطريٌّ يكسر
+   التخطيطَ كسراً صامتاً: لا خطأ، لا تحذير، وصورةٌ تمتدّ خارجَ خليّتِها
+   ثلاثةَ أضعافِ طولِها — وهذا بعينُه ما وقع في قسمِ القصّةِ وظهر في لقطة.
+   ومعه: `img` داخلَ `picture` **ليس** الابنَ الأوّلَ للشبكة، فمحدِّداتُ
+   `img:first-child` لا تُطابق ما يُظَنُّ أنّها تُطابقه. */
+picture { display: block; }
+
+/* ⚠ سمتا `width`/`height` في الوسم تُترجَمان إلى `width`/`height` في
+   CSS (presentational hints)، و`aspect-ratio` **يُهمَل متى كان البُعدان
+   معلومَين**. فصورةٌ مكتوبٌ فيها `height="1125"` تتجاهل
+   `aspect-ratio: 16/10` وتمتدّ 1125 بكسلاً — وقع فعلاً في بطاقةِ الفرعِ
+   وظهر في لقطة.
+   ولا تُحذف السمتان: بلا أبعادٍ في الوسم **تقفز الصفحةُ** عند تحميل كلِّ
+   صورة (CLS). فالحلُّ `height: auto` بـ`:where()` — صفرُ خصوصيّةٍ، فأيُّ
+   قاعدةٍ بصنفٍ (مثل `.hdr__logo img { height: 54px }`) تقهرها بلا
+   `!important` ولا ترتيبٍ هشّ. */
+:where(img[width][height]) { height: auto; }
+
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--brand-strong); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0;
+  /* ⚠ 1.5 لا 1.22: خطّ أبو رقعة له صواعد ونوازل طويلة (الكاف والهاء
+     والياء) وشَدّاتُه ترتفع فوق السطر. وبـ1.22 **تتلامس سطور العنوان
+     فعلاً** — مُتحقَّق في لقطة، لا احتياطاً. */
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+/* هامشٌ علويٌّ أو تُقطَع رؤوس الحروف عند حدّ الصندوق */
+:where(h1, h2, h3) { padding-block-start: .1em; }
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+/* الحلقة البؤريّة تظهر للوحة المفاتيح ولا تظهر للفأرة — ولا تُحذف أبداً،
+   فمن يتنقّل بالـTab بلا حلقة لا يعرف أين هو */
+:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---------------------------------------------------------------- أدوات */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 5vw, 48px);
+}
+.wrap--narrow { max-width: var(--wrap-narrow); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+/* تخطّي إلى المحتوى — أوّل ما يصله من يتنقّل بلوحة المفاتيح */
+.skip {
+  position: absolute;
+  inset-inline-start: var(--s-4);
+  inset-block-start: -100px;
+  z-index: 100;
+  background: var(--ink-900);
+  color: var(--text-on-dark);
+  padding: var(--s-3) var(--s-5);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  font-size: var(--t-sm);
+  transition: inset-block-start var(--dur) var(--ease);
+}
+.skip:focus { inset-block-start: 0; color: var(--text-on-dark); }
+
+/* ---------------------------------------------------------------- الأزرار */
+.btn {
+  --btn-bg: var(--ink-900);
+  --btn-fg: var(--cream-100);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 1px solid var(--btn-bg);
+  border-radius: 999px;
+  /* 48px ارتفاعاً أدنى: إصبعٌ على جوّال لا يُنقّر هدفاً أصغر */
+  min-height: 48px;
+  padding: var(--s-3) var(--s-6);
+  font: 500 var(--t-sm)/1 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .18s var(--ease), background .18s var(--ease),
+              border-color .18s var(--ease);
+}
+.btn:hover { transform: translateY(-2px); color: var(--btn-fg); }
+.btn:active { transform: translateY(0); }
+
+.btn--brand { --btn-bg: var(--maroon-600); }
+.btn--brand:hover { --btn-bg: var(--maroon-700); }
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--ink-900);
+  border-color: var(--line-strong);
+}
+.btn--ghost:hover { --btn-bg: var(--cream-200); }
+
+.btn--on-dark {
+  --btn-bg: transparent;
+  --btn-fg: var(--cream-100);
+  border-color: rgba(251, 247, 240, .45);
+}
+.btn--on-dark:hover { --btn-bg: rgba(251, 247, 240, .14); }
+
+/* ---------------------------------------------------------------- الوسوم */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-xs);
+  line-height: 1;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--bg-sunken);
+  color: var(--text-soft);
+  border: 1px solid var(--line);
+}
+.tag--veg { background: #E7F2E4; color: #2C5E24; border-color: #CADEC5; }
+.tag--allergen { background: var(--maroon-100); color: var(--maroon-700); border-color: #E6CFCB; }
+
+/* «ناقص» يُعلن نفسه ولا يُخفى: فراغٌ صامتٌ في موقعٍ يُقرأ عطلاً، وفراغٌ
+   موسومٌ يُقرأ صدقاً — ويذكّر المالك بما لم يُرسله */
+.pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-xs);
+  padding: 6px 11px;
+  border-radius: var(--radius-sm);
+  background: repeating-linear-gradient(135deg,
+    var(--cream-200) 0 7px, var(--cream-300) 7px 14px);
+  color: var(--ink-600);
+  border: 1px dashed var(--line-strong);
+}
+
+/* ---------------------------------------------------------------- العناوين */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--teal-700);
+  margin: 0 0 var(--s-3);
+}
+/* العربيّة لا تُكبَّر حروفُها ولا تُباعَد — التباعد يفصل حروف الكلمة المتّصلة */
+:lang(ar) .eyebrow, [dir="rtl"] .eyebrow {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.section { padding-block: clamp(var(--s-8), 9vw, var(--s-10)); }
+.section--sunken { background: var(--bg-sunken); }
+.section--dark { background: var(--bg-inverse); color: var(--text-on-dark); }
+.section--dark .eyebrow { color: var(--teal-400); }
+.section--dark a { color: var(--teal-400); }
+
+.section-head { max-width: 62ch; margin-bottom: var(--s-7); }
+.section-head h2 { font-size: var(--t-3xl); margin-bottom: var(--s-3); }
+.section-head p { color: var(--text-soft); font-size: var(--t-lg); }
+.section--dark .section-head p { color: var(--text-on-dark-soft); }
+
+/* فاصل زخرفي: معيّنات الشعار الأربعة نفسها، مرسومة بالـCSS لا بصورة */
+.rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-block: var(--s-6);
+}
+.rule::before, .rule::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(to left, transparent, var(--line-strong));
+}
+.rule::after { background: linear-gradient(to right, transparent, var(--line-strong)); }
+.rule i {
+  width: 7px; height: 7px;
+  background: var(--maroon-600);
+  transform: rotate(45deg);
+  flex: none;
+}
+
+/* ---------------------------------------------------------------- الكشف */
+/* كل المحتوى في HTML ويُقرأ بلا جافاسكربت. هذا الكشف **تحسين**: العنصر
+   يبدأ مرئيّاً، والجافاسكربت وحده يُخفيه ليُظهره — فلو تعثّر الملفّ بقي
+   كل شيء مقروءاً. والعكس (البدء بـopacity:0 في CSS) يُنتج صفحة بيضاء. */
+[data-reveal].is-armed {
+  opacity: 0;
+  transform: translateY(18px);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}

@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "حارس حدّ 2000 بكسل على قراءة الصور",
+      "trigger": "PreToolUse",
+      "matcher": "read_file|read|fs_read",
+      "action": {
+        "type": "command",
+        "command": "python3 .kiro/tools/imgguard.py hook"
+      }
+    }
+  ]
+}

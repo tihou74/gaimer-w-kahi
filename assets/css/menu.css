@@ -1,0 +1,158 @@
+/* =============================================================================
+   قيمر وكاهي — صفحة المنيو
+   -----------------------------------------------------------------------------
+   144 طبقاً في صفحة واحدة. القرار: **قائمةٌ تُقرأ لا بطاقاتٌ تُستعرض** —
+   من يبحث عن سعرٍ يمسح عموداً بعينه، والبطاقاتُ تُبعثر العين وتُطيل
+   الصفحةَ أضعافاً. والأسعارُ بأرقامٍ جدوليّةٍ تتراصف فواصلُها عموديّاً.
+   ============================================================================= */
+
+.mhead { padding-block: clamp(var(--s-7), 6vw, var(--s-8)) var(--s-5); max-width: 64ch; }
+.mhead h1 { font-size: var(--t-4xl); margin-bottom: var(--s-3); }
+.mhead__lede { font-size: var(--t-lg); color: var(--text-soft); margin-bottom: var(--s-4); }
+/* ملاحظةُ السعرَين المتعارضَين: تُقال في أعلى الصفحةِ لا تُخفى في بطاقةٍ
+   وحدها — من يبحث عن سعرِ الصينيّةِ يجب أن يعرف **لماذا** لا يجده */
+.mhead__note {
+  font-size: var(--t-sm);
+  color: var(--ink-600);
+  background: var(--maroon-100);
+  border-inline-start: 3px solid var(--maroon-600);
+  padding: var(--s-3) var(--s-4);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 0;
+}
+[dir="ltr"] .mhead__note { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+
+/* ---------------------------------------------------------------- الأدوات */
+.mtools {
+  position: sticky;
+  inset-block-start: 86px;
+  z-index: 20;
+  background: color-mix(in srgb, var(--cream-100) 94%, transparent);
+  backdrop-filter: blur(12px);
+  padding-block: var(--s-4);
+  margin-block-end: var(--s-5);
+  border-block-end: 1px solid var(--line);
+}
+.msearch {
+  width: 100%;
+  max-width: 420px;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-4);
+  font: 400 var(--t-base) var(--font-body);
+  color: var(--text);
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  margin-block-end: var(--s-3);
+}
+.msearch::placeholder { color: var(--text-faint); }
+
+.chips { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.chip {
+  min-height: 40px;
+  padding: 0 var(--s-4);
+  font: 500 var(--t-xs)/1 var(--font-body);
+  color: var(--text-soft);
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: background .15s var(--ease), color .15s var(--ease),
+              border-color .15s var(--ease);
+}
+.chip:hover { border-color: var(--teal-600); }
+.chip.is-on {
+  background: var(--ink-900);
+  color: var(--cream-100);      /* على الحبري 18.22:1 */
+  border-color: var(--ink-900);
+}
+.chip .num { opacity: .65; font-size: 11px; }
+
+/* ---------------------------------------------------------------- الأقسام */
+.ms { padding-block-end: var(--s-7); scroll-margin-block-start: 180px; }
+.ms__h {
+  font-size: var(--t-2xl);
+  padding-block-end: var(--s-3);
+  margin-block-end: var(--s-4);
+  border-block-end: 2px solid var(--maroon-600);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+.ms__note {
+  font: 500 var(--t-xs)/1 var(--font-body);
+  font-style: normal;
+  color: var(--teal-700);       /* على الكريمي 6.92:1 */
+  background: var(--teal-100);
+  padding: 6px 11px;
+  border-radius: 999px;
+}
+
+.ms__l { list-style: none; margin: 0; padding: 0; }
+
+.mi {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s-3) var(--s-5);
+  align-items: start;
+  padding-block: var(--s-4);
+  border-block-end: 1px dashed var(--line);
+}
+.mi:last-child { border-block-end: 0; }
+.mi__n { font-size: var(--t-lg); margin-bottom: 4px; }
+.mi__d { font-size: var(--t-sm); color: var(--text-soft); margin: 0 0 6px; line-height: 1.65; }
+.mi__a { font-size: var(--t-xs); color: var(--ink-500); margin: 0; }
+.mi__a span { color: var(--maroon-600); font-weight: 600; }
+.mi__t { display: flex; flex-wrap: wrap; gap: 6px; margin-block-start: var(--s-2); }
+.mi__p {
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  color: var(--maroon-600);     /* على الكريمي 6.66:1 */
+  white-space: nowrap;
+}
+.mi__p small { font-size: var(--t-xs); color: var(--text-faint); font-family: var(--font-body); }
+
+/* بطاقةٌ مخفيّةٌ بالترشيح: `hidden` لا `display:none` بالصنف — فقارئُ
+   الشاشةِ يتخطّاها أيضاً ولا يقرأ أطباقاً لا تُرى */
+.mi[hidden], .ms[hidden] { display: none; }
+
+.mnone {
+  padding: var(--s-7) 0;
+  text-align: center;
+  color: var(--text-faint);
+  font-size: var(--t-lg);
+}
+
+.mfoot {
+  font-size: var(--t-sm);
+  color: var(--text-faint);
+  max-width: 70ch;
+  padding-block: var(--s-4);
+  border-block-start: 1px solid var(--line);
+  margin-block-start: var(--s-5);
+}
+
+@media (max-width: 520px) {
+  .mtools { inset-block-start: 86px; }
+  .mi { grid-template-columns: 1fr; }
+  .mi__p { justify-self: start; }
+}
+
+/* عمودان على الشاشات الواسعة: صفٌّ واحدٌ بعرض 1240 بكسل يفصل اسمَ الطبقِ
+   عن سعرِه بمسافةٍ تُجبر العينَ على قطعِ الشاشةِ كلَّها لكل سطر.
+   ⚠ `grid` لا `columns`: الأعمدةُ النصّيّة (CSS columns) تقطع البطاقةَ
+   في منتصفِها بين عمودَين. */
+@media (min-width: 1000px) {
+  .ms__l {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--s-8);
+  }
+  /* الحدُّ السفليُّ لآخرِ صفٍّ في **كلِّ** عمودٍ لا للأخيرِ وحدَه */
+  .mi:last-child { border-block-end: 1px dashed var(--line); }
+  .mi:nth-last-child(1), .mi:nth-last-child(2) { border-block-end: 0; }
+}
