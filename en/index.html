@@ -27,9 +27,9 @@
 <link rel="preload" href="../assets/fonts/ArefRuqaa-Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="../assets/fonts/Amiri-Regular.ttf" as="font" type="font/ttf" crossorigin>
 
-<link rel="stylesheet" href="../assets/css/tokens.css?v=1">
-<link rel="stylesheet" href="../assets/css/base.css?v=1">
-<link rel="stylesheet" href="../assets/css/layout.css?v=1">
+<link rel="stylesheet" href="../assets/css/tokens.css?v=2">
+<link rel="stylesheet" href="../assets/css/base.css?v=2">
+<link rel="stylesheet" href="../assets/css/layout.css?v=2">
 
 <script type="application/ld+json">
 {
@@ -42,6 +42,7 @@
   "currenciesAccepted": "QAR",
   "image": "../assets/img/photo/kahi-gaimer-rose-900.jpg",
   "hasMenu": "menu.html",
+  "award": "Taste of Qatar 2025 — Exceptional Casual Dining Experience (Qatar Tourism Restaurant Rating Program)",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Al Sidr Street — West Walk",
@@ -71,6 +72,7 @@
     <nav class="nav" id="nav" aria-label="Main menu">
       <a href="./" aria-current="page">Home</a>
       <a href="#story">Gaimer &amp; Kahi</a>
+      <a href="#films">Films</a>
       <a href="menu.html">Menu</a>
       <a href="#branches">Branches</a>
       <a href="#awards">Awards</a>
@@ -121,12 +123,13 @@
 
     <figure class="hero__media" style="margin:0">
       <video class="hero__video" autoplay muted loop playsinline
-             preload="metadata" poster="../assets/img/photo/video-poster.webp"
-             aria-label="A breakfast table on the restaurant terrace">
-        <source src="../assets/video/hero.mp4" type="video/mp4">
+             preload="metadata" poster="../assets/img/photo/poster-port.jpg"
+             aria-label="The brass Gaimer W Kahi sign, breakfast being served, and the sea at Old Doha Port">
+        <source src="../assets/video/film-port.mp4" type="video/mp4">
       </video>
       <figcaption class="hero__cap">
-        <span>Breakfast table — West Walk</span>
+        <span>Old Doha Port</span>
+        <span class="num">0:15</span>
       </figcaption>
     </figure>
   </div>
@@ -183,6 +186,88 @@
         which turned its daily dishes into a whole food pyramid that suits
         every season.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== Band -->
+<figure class="band">
+  <picture>
+    <source type="image/webp" srcset="../assets/img/photo/hero-kahi-hand-480.webp 480w,
+            ../assets/img/photo/hero-kahi-hand-960.webp 960w,
+            ../assets/img/photo/hero-kahi-hand-1440.webp 1440w" sizes="100vw">
+    <img src="../assets/img/photo/hero-kahi-hand-1440.jpg" width="1440" height="1440"
+         loading="lazy" decoding="async"
+         alt="A hand holding a piece of kahi topped with thick white gaimer, date syrup being poured over it">
+  </picture>
+  <figcaption>
+    <p>One piece, eaten by hand, with gaimer and date syrup.</p>
+    <span class="band__meta">Kahi — <span class="num">35</span> QAR</span>
+  </figcaption>
+</figure>
+
+<!-- ======================================================== Films -->
+<section class="section section--dark" id="films">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">From the restaurant</p>
+      <h2>Three films</h2>
+      <p>
+        Shot at both branches. Tap to watch — nothing downloads before you
+        tap, so none of your data is spent unless you want it to be.
+      </p>
+    </div>
+
+    <div class="films" data-reveal>
+
+      <figure class="film">
+        <video playsinline muted loop preload="none"
+               poster="../assets/img/photo/poster-port.jpg"
+               aria-label="Film: the brass sign, breakfast service, and the sea at Old Doha Port">
+          <source src="../assets/video/film-port.mp4" type="video/mp4">
+        </video>
+        <button class="film__play" type="button" aria-label="Play the Old Doha Port film">
+          <i><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M7 4.5v13L18 11z" fill="currentColor"/></svg></i>
+        </button>
+        <figcaption>
+          <b>Morning at the port</b>
+          <span>The brass sign · breakfast served · the sea — <span class="num">0:15</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="film">
+        <video playsinline muted loop preload="none"
+               poster="../assets/img/photo/poster-table.jpg"
+               aria-label="Film: keema and clay pots, and gaimer poured over kahi">
+          <source src="../assets/video/film-table.mp4" type="video/mp4">
+        </video>
+        <button class="film__play" type="button" aria-label="Play the table film">
+          <i><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M7 4.5v13L18 11z" fill="currentColor"/></svg></i>
+        </button>
+        <figcaption>
+          <b>At the table</b>
+          <span>Keema · the clay pot · gaimer poured over kahi — <span class="num">0:34</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="film">
+        <video playsinline muted loop preload="none"
+               poster="../assets/img/photo/poster-evening.jpg"
+               aria-label="Film: Old Doha Port by day and by night, with tashreeb and eggs">
+          <source src="../assets/video/film-evening.mp4" type="video/mp4">
+        </video>
+        <button class="film__play" type="button" aria-label="Play the evening film">
+          <i><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M7 4.5v13L18 11z" fill="currentColor"/></svg></i>
+        </button>
+        <figcaption>
+          <b>Into the evening</b>
+          <span>The waterfront · tashreeb · dinner by the sea — <span class="num">0:28</span></span>
+        </figcaption>
+      </figure>
+
     </div>
   </div>
 </section>
@@ -306,6 +391,79 @@
   </div>
 </section>
 
+<!-- ======================================================== Gallery -->
+<section class="section section--sunken" id="gallery">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">The big table</p>
+      <h2>What gets ordered for a gathering</h2>
+      <p>Every photo here was taken by the restaurant; every name and price comes from the printed menu.</p>
+    </div>
+
+    <div class="gal" data-reveal>
+      <figure class="gal__wide">
+        <picture>
+          <source type="image/webp" srcset="../assets/img/photo/dish-kozi-480.webp 480w,
+                  ../assets/img/photo/dish-kozi-1009.webp 1009w" sizes="(max-width:860px) 100vw, 50vw">
+          <img src="../assets/img/photo/dish-kozi-1009.jpg" width="1009" height="807"
+               loading="lazy" decoding="async"
+               alt="A whole lamb kozi on a wooden board with saffron rice">
+        </picture>
+        <figcaption><b>Beef lamb kozi</b> <em class="num">420 QAR</em></figcaption>
+      </figure>
+
+      <figure class="gal__tall">
+        <picture>
+          <source type="image/webp" srcset="../assets/img/photo/dish-dolma-480.webp 480w,
+                  ../assets/img/photo/dish-dolma-960.webp 960w" sizes="(max-width:860px) 50vw, 25vw">
+          <img src="../assets/img/photo/dish-dolma-960.jpg" width="960" height="960"
+               loading="lazy" decoding="async"
+               alt="Iraqi dolma in a pot with Iraqi bread">
+        </picture>
+        <figcaption><b>Iraqi dolma</b> <em class="num">120 QAR</em></figcaption>
+      </figure>
+
+      <figure class="gal__tall">
+        <picture>
+          <source type="image/webp" srcset="../assets/img/photo/dish-kahi-board-480.webp 480w,
+                  ../assets/img/photo/dish-kahi-board-960.webp 960w" sizes="(max-width:860px) 50vw, 25vw">
+          <img src="../assets/img/photo/dish-kahi-board-960.jpg" width="960" height="960"
+               loading="lazy" decoding="async"
+               alt="Kahi with gaimer on a wooden board, syrup being poured over it">
+        </picture>
+        <figcaption><b>Kahi with gaimer</b> <em>syrup poured at your table</em></figcaption>
+      </figure>
+
+      <figure>
+        <picture>
+          <source type="image/webp" srcset="../assets/img/photo/sweets-tiers-480.webp 480w,
+                  ../assets/img/photo/sweets-tiers-960.webp 960w" sizes="(max-width:860px) 50vw, 25vw">
+          <img src="../assets/img/photo/sweets-tiers-960.jpg" width="960" height="640"
+               loading="lazy" decoding="async"
+               alt="Tiered stands of pastries with Qatari flags">
+        </picture>
+        <figcaption><b>Tiered pastries</b></figcaption>
+      </figure>
+
+      <figure>
+        <picture>
+          <source type="image/webp" srcset="../assets/img/photo/sweets-copper-480.webp 480w,
+                  ../assets/img/photo/sweets-copper-960.webp 960w" sizes="(max-width:860px) 50vw, 25vw">
+          <img src="../assets/img/photo/sweets-copper-960.jpg" width="960" height="640"
+               loading="lazy" decoding="async"
+               alt="Copper dallah pots and sweet trays set for a national occasion">
+        </picture>
+        <figcaption><b>Occasion catering</b></figcaption>
+      </figure>
+    </div>
+
+    <p style="margin-block-start:var(--s-5);font-size:var(--t-sm);color:var(--text-faint)">
+      The menu carries four banquet trays, from <span class="num">325</span> up to
+      <span class="num">1450</span> QAR. <a href="menu.html#banquet-trays">Banquet trays</a>
+    </p>
+  </div>
+</section>
+
 <section class="section section--sunken">
   <div class="wrap">
     <div class="section-head" data-reveal>
@@ -340,13 +498,13 @@
 
       <article class="branch">
         <picture>
-          <source type="image/webp" srcset="../assets/img/photo/storefront-480.webp 480w,
-                  ../assets/img/photo/storefront-960.webp 960w,
-                  ../assets/img/photo/storefront-1440.webp 1440w"
+          <source type="image/webp" srcset="../assets/img/photo/branch-westwalk-480.webp 480w,
+                  ../assets/img/photo/branch-westwalk-960.webp 960w,
+                  ../assets/img/photo/branch-westwalk-1440.webp 1440w"
                   sizes="(max-width: 860px) 100vw, 50vw">
-          <img class="branch__img" src="../assets/img/photo/storefront-1440.jpg"
-               width="2000" height="1125" loading="lazy" decoding="async"
-               alt="The West Walk storefront: a turquoise wall, wide glazing and the Gaimer W Kahi sign">
+          <img class="branch__img" src="../assets/img/photo/branch-westwalk-1440.jpg"
+               width="1440" height="1920" loading="lazy" decoding="async"
+               alt="The West Walk dining room: olive trees, a turquoise wall of lanterns, rattan chairs and a copper dallah on the table">
         </picture>
         <div class="branch__b">
           <h3>West Walk</h3>
@@ -365,15 +523,15 @@
       </article>
 
       <article class="branch">
-        <!-- No photo of this branch is owned by the restaurant. The one in
-             its files (WESTW ALK.jpeg) carries the QatarLiving.com logo —
-             evidence in docs/evidence/. So the slot is marked rather than
-             filled with someone else's picture, and not left white, since
-             white reads as a fault. -->
-        <div class="branch__ph">
-          <strong>Branch photo pending</strong>
-          <span>A photo taken by the restaurant — see <code>intake/03-branch-photos/</code></span>
-        </div>
+        <picture>
+          <source type="image/webp" srcset="../assets/img/photo/branch-oldport-480.webp 480w,
+                  ../assets/img/photo/branch-oldport-960.webp 960w,
+                  ../assets/img/photo/branch-oldport-1080.webp 1080w"
+                  sizes="(max-width: 860px) 100vw, 50vw">
+          <img class="branch__img" src="../assets/img/photo/branch-oldport-1080.jpg"
+               width="1080" height="1440" loading="lazy" decoding="async"
+               alt="The Old Doha Port dining room: arches, a turquoise painted wall, and a breakfast table set with kahi and copper pots">
+        </picture>
         <div class="branch__b">
           <h3>Old Doha Port</h3>
           <dl>
@@ -385,6 +543,7 @@
             <dd><span class="pending">pending</span></dd>
           </dl>
           <div class="branch__cta">
+            <a class="btn btn--ghost" href="#films">See it in the film</a>
             <span class="pending">map link pending</span>
           </div>
         </div>
@@ -398,14 +557,39 @@
   <div class="wrap">
     <div class="section-head" data-reveal>
       <p class="eyebrow">The record</p>
-      <h2>Certificates &amp; awards</h2>
-      <p>
-        This section is reserved for certificates and awards. Nothing has
-        been written into it yet — a certificate without an issuing body and
-        a year reads as decoration, not as a record.
-      </p>
+      <h2>Taste of Qatar</h2>
     </div>
-    <p><span class="pending">awaiting files — <code>intake/02-awards-certificates/</code></span></p>
+
+    <div class="award" data-reveal>
+      <picture>
+        <source type="image/webp" srcset="../assets/img/photo/award-taste-of-qatar-480.webp 480w,
+                ../assets/img/photo/award-taste-of-qatar-960.webp 960w"
+                sizes="(max-width: 760px) 100vw, 340px">
+        <img src="../assets/img/photo/award-taste-of-qatar-960.jpg" width="960" height="1280"
+             loading="lazy" decoding="async"
+             alt="The turquoise Taste of Qatar plate with a gold rim, engraved: Restaurant Rating Program — Taste of Qatar by Qatar Tourism">
+      </picture>
+
+      <div>
+        <h3>Exceptional Casual Dining Experience</h3>
+        <p class="award__body">
+          Awarded by the <strong>Taste of Qatar Restaurant Rating
+          Program</strong> — <strong>Qatar Tourism</strong>'s official
+          programme for rating the country's restaurants. This is a
+          government assessment, not a customer poll.
+        </p>
+        <dl>
+          <dt>Awarded by</dt>
+          <dd>Qatar Tourism</dd>
+          <dt>Programme</dt>
+          <dd>Taste of Qatar · Restaurant Rating Program</dd>
+          <dt>Recognition</dt>
+          <dd>Exceptional Casual Dining Experience</dd>
+          <dt>Year</dt>
+          <dd><span class="num">2025</span> — as engraved on the plate</dd>
+        </dl>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -426,6 +610,8 @@
         <h4>SITE</h4>
         <ul>
           <li><a href="#story">Gaimer &amp; Kahi</a></li>
+          <li><a href="#films">Films</a></li>
+          <li><a href="#gallery">The big table</a></li>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="#branches">Branches</a></li>
           <li><a href="#awards">Awards</a></li>
@@ -454,6 +640,6 @@
   </div>
 </footer>
 
-<script src="../assets/js/site.js?v=1" defer></script>
+<script src="../assets/js/site.js?v=2" defer></script>
 </body>
 </html>

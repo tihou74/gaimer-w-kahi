@@ -457,8 +457,13 @@ async function cmdShot(page, out, opts) {
                width: Math.min(Math.round(r.w) || w, MAX_DIM), height, scale: 1 };
     }
 
+    // ⚠ `captureBeyondViewport` يُعيد تخطيطَ الصفحةِ إلى مقاسِ الاقتصاص.
+    // وهو **لازمٌ** لعنصرٍ يقع أسفلَ النافذة، و**مؤذٍ** للقطةِ النافذةِ
+    // نفسِها: على صفحةٍ أطولَ من النافذةِ في RTL أزاح المحتوى مئاتِ
+    // البكسلاتِ يميناً وقطعه — ظهر فعلاً، وكان سيُقرأ «التصميمُ مكسور»
+    // والتصميمُ سليم. فيُستعمل عند الاقتصاصِ بمحدِّدٍ وحدَه.
     const { data } = await b.send('Page.captureScreenshot',
-      { format: 'png', clip, captureBeyondViewport: true }, b.sessionId);
+      { format: 'png', clip, captureBeyondViewport: !!sel }, b.sessionId);
     fs.mkdirSync(path.dirname(path.resolve(out)), { recursive: true });
     fs.writeFileSync(out, Buffer.from(data, 'base64'));
 
@@ -472,6 +477,99 @@ async function cmdShot(page, out, opts) {
     console.log(`  اقتصاص ${clip.width}x${clip.height} عند (${clip.x},${clip.y})`
       + `  ⇒ ${Math.round(fs.statSync(out).size / 1024)} ك.ب  ${out}`);
     if (prep.broken.length) process.exitCode = 1;
+  } finally { b.stop(); }
+}
+
+/**
+ * يُشوّش مواضعَ محدّدةً في صورة — للوجوهِ التي لا إذنَ بنشرِها.
+ *
+ * لماذا التشويشُ لا الحذف: صورةُ صالةٍ فيها زبائنُ هي **جوُّ المكانِ**
+ * نفسُه، وقصُّهم يُفقد الصورةَ سببَ وجودِها. والتشويشُ يُبقي الجوَّ
+ * ويحمي الإنسان.
+ *
+ * ثلاثةُ قراراتٍ مقصودة:
+ *   · التشويشُ يُرسَم من **صورةٍ مُشوَّشةٍ كاملةً** تُقتطع منها المواضع،
+ *     لا بـ`filter` على مستطيلٍ — فالمرشّحُ على مستطيلٍ يسحب بكسلاتٍ من
+ *     خارجِه فتظهر حدودٌ حادّةٌ تدلُّ على موضعِ التشويشِ بدقّة
+ *   · الإحداثيّاتُ بنسبةِ العرضِ والارتفاعِ (0–1) لا بالبكسل: الصورةُ
+ *     تُصغَّر لمقاساتٍ ثلاثةٍ، وإحداثيّةٌ بالبكسلِ تُصيب موضعاً آخرَ في
+ *     كلِّ مقاس
+ *   · يُطبَع عددُ المواضعِ المُشوَّشةِ ويُرفَض الصفرُ — أداةُ تشويشٍ
+ *     تُنتج صورةً بلا تشويشٍ وتقول «تمّ» أخطرُ من غيابِها
+ */
+const JS_BLUR = (dataUrl, regions, w, type, q, radius) => `(async () => {
+  const img = new Image();
+  img.src = ${JSON.stringify(dataUrl)};
+  await img.decode();
+  const target = Math.min(${w}, img.naturalWidth);
+  const outW = Math.round(target);
+  const outH = Math.round(img.naturalHeight * (target / img.naturalWidth));
+  if (outW > ${MAX_DIM} || outH > ${MAX_DIM}) {
+    throw new Error('المُخرَجُ ' + outW + 'x' + outH + ' يتجاوز ${MAX_DIM}');
+  }
+  const regions = ${JSON.stringify(regions)};
+  if (!regions.length) throw new Error('لا موضعَ للتشويش — لا تُكتب صورةٌ بلا تشويش');
+
+  const base = new OffscreenCanvas(outW, outH);
+  const bg = base.getContext('2d');
+  bg.imageSmoothingQuality = 'high';
+  bg.drawImage(img, 0, 0, outW, outH);
+
+  // نسخةٌ مُشوَّشةٌ كاملةً: المواضعُ تُقتطع منها فلا حدودَ حادّة
+  const soft = new OffscreenCanvas(outW, outH);
+  const sg = soft.getContext('2d');
+  sg.filter = 'blur(' + Math.max(6, Math.round(outW * ${radius})) + 'px)';
+  sg.drawImage(base, 0, 0);
+
+  let done = 0;
+  for (const r of regions) {
+    const x = r[0] * outW, y = r[1] * outH, rw = r[2] * outW, rh = r[3] * outH;
+    if (rw < 1 || rh < 1) continue;
+    bg.save();
+    bg.beginPath();
+    // بيضويٌّ لا مستطيل: المستطيلُ يُعلن «هنا وجهٌ أُخفي»
+    bg.ellipse(x + rw / 2, y + rh / 2, rw / 2, rh / 2, 0, 0, Math.PI * 2);
+    bg.clip();
+    bg.drawImage(soft, 0, 0);
+    bg.restore();
+    done++;
+  }
+  if (!done) throw new Error('صفرُ مواضعَ طُبّقت');
+
+  const blob = await base.convertToBlob({ type: ${JSON.stringify(type)}, quality: ${q} });
+  const buf = await blob.arrayBuffer();
+  const bytes = new Uint8Array(buf);
+  let s = ''; const CH = 0x8000;
+  for (let i = 0; i < bytes.length; i += CH) {
+    s += String.fromCharCode.apply(null, bytes.subarray(i, i + CH));
+  }
+  return { b64: btoa(s), w: outW, h: outH, done };
+})()`;
+
+async function cmdBlur(src, out, width, q, regionArgs) {
+  const regions = regionArgs.map((a) => {
+    const p = a.split(',').map(Number);
+    if (p.length !== 4 || p.some((v) => !isFinite(v) || v < 0 || v > 1)) {
+      throw new Error(`موضعٌ غيرُ صالحٍ «${a}» — المطلوب x,y,w,h بنسبةٍ بين 0 و1`);
+    }
+    return p;
+  });
+  const b = new Browser();
+  await b.start();
+  try {
+    const type = path.extname(out).toLowerCase() === '.webp'
+      ? 'image/webp' : 'image/jpeg';
+    const r = await b.evaluate(JS_BLUR(toDataUrl(src), regions,
+      Number(width || 1440), type, Number(q || 0.85), 0.022));
+    fs.mkdirSync(path.dirname(path.resolve(out)), { recursive: true });
+    fs.writeFileSync(out, Buffer.from(r.b64, 'base64'));
+    const verdict = guard(out);
+    if (!verdict.startsWith('آمن')) {
+      fs.unlinkSync(out);
+      throw new Error(`المُخرَجُ متجاوزٌ فحُذف\n${verdict}`);
+    }
+    console.log(`  ${r.w}x${r.h}  ${r.done} موضعاً مُشوَّشاً  `
+      + `${Math.round(fs.statSync(out).size / 1024)} ك.ب  ${out}`);
   } finally { b.stop(); }
 }
 
@@ -610,6 +708,10 @@ async function cmdBatch(planFile) {
     else if (cmd === 'resize') await cmdResize(rest[0], rest[1], rest[2], rest[3]);
     else if (cmd === 'poster') await cmdPoster(rest[0], rest[1], rest[2], rest[3], rest[4]);
     else if (cmd === 'overflow') await cmdOverflow(rest[0], rest[1], rest[2]);
+    else if (cmd === 'blur') {
+      // imgpipe.js blur <in> <out> <width> <q> x,y,w,h [x,y,w,h ...]
+      await cmdBlur(rest[0], rest[1], rest[2], rest[3], rest.slice(4));
+    }
     else if (cmd === 'shot') {
       // imgpipe.js shot <page> <out> [--sel '#id'] [--w 1400] [--h 900] [--mobile]
       const o = {};

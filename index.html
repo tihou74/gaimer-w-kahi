@@ -30,9 +30,9 @@
 
 <!-- ⚠ رقم الإصدار يزيد في كل دفعة: كاش GitHub Pages يُظهر نسخاً قديمة
      فيُقرأ «الإصلاح لم يُنفَّذ» وهو منفَّذ. -->
-<link rel="stylesheet" href="assets/css/tokens.css?v=1">
-<link rel="stylesheet" href="assets/css/base.css?v=1">
-<link rel="stylesheet" href="assets/css/layout.css?v=1">
+<link rel="stylesheet" href="assets/css/tokens.css?v=2">
+<link rel="stylesheet" href="assets/css/base.css?v=2">
+<link rel="stylesheet" href="assets/css/layout.css?v=2">
 
 <script type="application/ld+json">
 {
@@ -45,6 +45,7 @@
   "currenciesAccepted": "QAR",
   "image": "assets/img/photo/kahi-gaimer-rose-900.jpg",
   "hasMenu": "menu.html",
+  "award": "Taste of Qatar 2025 — Exceptional Casual Dining Experience (Qatar Tourism Restaurant Rating Program)",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "شارع السدر — ويست ووك",
@@ -74,9 +75,10 @@
     <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
       <a href="./" aria-current="page">الرئيسية</a>
       <a href="#story">القيمر والكاهي</a>
+      <a href="#films">الأفلام</a>
       <a href="menu.html">المنيو</a>
       <a href="#branches">الفروع</a>
-      <a href="#awards">الجوائز</a>
+      <a href="#awards">مذاق قطر</a>
     </nav>
 
     <div class="hdr__side">
@@ -129,12 +131,13 @@
       <!-- `playsinline` إلزاميّ: بلا هذا يفتح iPhone الفيديو بملء الشاشة
            فوق الصفحة. و`poster` يمنع المستطيل الأسود قبل أوّل إطار. -->
       <video class="hero__video" autoplay muted loop playsinline
-             preload="metadata" poster="assets/img/photo/video-poster.webp"
-             aria-label="طاولة ريوق في شرفة المطعم">
-        <source src="assets/video/hero.mp4" type="video/mp4">
+             preload="metadata" poster="assets/img/photo/poster-port.jpg"
+             aria-label="لوحة قيمر وكاهي النحاسية، ثم تقديم الريوق، ثم البحر من فرع ميناء الدوحة القديم">
+        <source src="assets/video/film-port.mp4" type="video/mp4">
       </video>
       <figcaption class="hero__cap">
-        <span>طاولة الريوق — فرع ويست ووك</span>
+        <span>فرع ميناء الدوحة القديم</span>
+        <span class="num">0:15</span>
       </figcaption>
     </figure>
   </div>
@@ -188,6 +191,88 @@
         إيران وسوريا وتركيا — فصارت أطباقه اليوميّة هرماً غذائيّاً كاملاً
         يصلح لكل فصول السنة.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== الشريط -->
+<figure class="band">
+  <picture>
+    <source type="image/webp" srcset="assets/img/photo/hero-kahi-hand-480.webp 480w,
+            assets/img/photo/hero-kahi-hand-960.webp 960w,
+            assets/img/photo/hero-kahi-hand-1440.webp 1440w" sizes="100vw">
+    <img src="assets/img/photo/hero-kahi-hand-1440.jpg" width="1440" height="1440"
+         loading="lazy" decoding="async"
+         alt="يد تحمل قطعة كاهي عليها قيمر أبيض كثيف ويُسكب عليها الدبس">
+  </picture>
+  <figcaption>
+    <p>قطعةٌ واحدةٌ تُؤكل باليد، وعليها القيمر والدبس.</p>
+    <span class="band__meta">كاهي قطعة واحدة — <span class="num">35</span> ر.ق</span>
+  </figcaption>
+</figure>
+
+<!-- ======================================================== الأفلام -->
+<section class="section section--dark" id="films">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">من المطعم</p>
+      <h2>ثلاثة أفلام</h2>
+      <p>
+        مصوَّرة في الفرعين. اضغط لتشاهد — ولا تُحمَّل قبل أن تضغط، فلا
+        تستهلك من بياناتك شيئاً إن لم ترغب.
+      </p>
+    </div>
+
+    <div class="films" data-reveal>
+
+      <figure class="film">
+        <video playsinline muted loop preload="none"
+               poster="assets/img/photo/poster-port.jpg"
+               aria-label="فيلم: لوحة قيمر وكاهي، تقديم الريوق، والبحر من ميناء الدوحة القديم">
+          <source src="assets/video/film-port.mp4" type="video/mp4">
+        </video>
+        <button class="film__play" type="button" aria-label="شغّل فيلم ميناء الدوحة القديم">
+          <i><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M7 4.5v13L18 11z" fill="currentColor"/></svg></i>
+        </button>
+        <figcaption>
+          <b>الصباح على الميناء</b>
+          <span>اللوحة النحاسية · تقديم الريوق · البحر — <span class="num">0:15</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="film">
+        <video playsinline muted loop preload="none"
+               poster="assets/img/photo/poster-table.jpg"
+               aria-label="فيلم: الكيمة والقدور الفخارية، والقيمر يُسكب على الكاهي">
+          <source src="assets/video/film-table.mp4" type="video/mp4">
+        </video>
+        <button class="film__play" type="button" aria-label="شغّل فيلم المائدة">
+          <i><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M7 4.5v13L18 11z" fill="currentColor"/></svg></i>
+        </button>
+        <figcaption>
+          <b>على المائدة</b>
+          <span>الكيمة · القدر الفخاري · القيمر يُسكب على الكاهي — <span class="num">0:34</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="film">
+        <video playsinline muted loop preload="none"
+               poster="assets/img/photo/poster-evening.jpg"
+               aria-label="فيلم: فرع ميناء الدوحة القديم نهاراً وليلاً، والتشريب والبيض">
+          <source src="assets/video/film-evening.mp4" type="video/mp4">
+        </video>
+        <button class="film__play" type="button" aria-label="شغّل فيلم المساء">
+          <i><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M7 4.5v13L18 11z" fill="currentColor"/></svg></i>
+        </button>
+        <figcaption>
+          <b>حتى المساء</b>
+          <span>الواجهة على الماء · التشريب · العشاء على البحر — <span class="num">0:28</span></span>
+        </figcaption>
+      </figure>
+
     </div>
   </div>
 </section>
@@ -318,6 +403,79 @@
   </div>
 </section>
 
+<!-- ======================================================== المعرض -->
+<section class="section section--sunken" id="gallery">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">المائدة الكبيرة</p>
+      <h2>ما يُطلب للعزايم</h2>
+      <p>كل صورة هنا من تصوير المطعم، وكل اسم وسعر من المنيو المطبوع.</p>
+    </div>
+
+    <div class="gal" data-reveal>
+      <figure class="gal__wide">
+        <picture>
+          <source type="image/webp" srcset="assets/img/photo/dish-kozi-480.webp 480w,
+                  assets/img/photo/dish-kozi-1009.webp 1009w" sizes="(max-width:860px) 100vw, 50vw">
+          <img src="assets/img/photo/dish-kozi-1009.jpg" width="1009" height="807"
+               loading="lazy" decoding="async"
+               alt="قوزي لحم خروف كامل على لوح خشبي مع التمن">
+        </picture>
+        <figcaption><b>قوزي لحم خروف</b> <em class="num">420 ر.ق</em></figcaption>
+      </figure>
+
+      <figure class="gal__tall">
+        <picture>
+          <source type="image/webp" srcset="assets/img/photo/dish-dolma-480.webp 480w,
+                  assets/img/photo/dish-dolma-960.webp 960w" sizes="(max-width:860px) 50vw, 25vw">
+          <img src="assets/img/photo/dish-dolma-960.jpg" width="960" height="960"
+               loading="lazy" decoding="async"
+               alt="دولمة عراقية في قدر مع الخبز العراقي">
+        </picture>
+        <figcaption><b>دولمة عراقية</b> <em class="num">120 ر.ق</em></figcaption>
+      </figure>
+
+      <figure class="gal__tall">
+        <picture>
+          <source type="image/webp" srcset="assets/img/photo/dish-kahi-board-480.webp 480w,
+                  assets/img/photo/dish-kahi-board-960.webp 960w" sizes="(max-width:860px) 50vw, 25vw">
+          <img src="assets/img/photo/dish-kahi-board-960.jpg" width="960" height="960"
+               loading="lazy" decoding="async"
+               alt="كاهي بالقيمر على لوح خشبي ويُسكب عليه القطر">
+        </picture>
+        <figcaption><b>الكاهي بالقيمر</b> <em>ويُسكب القطر أمامك</em></figcaption>
+      </figure>
+
+      <figure>
+        <picture>
+          <source type="image/webp" srcset="assets/img/photo/sweets-tiers-480.webp 480w,
+                  assets/img/photo/sweets-tiers-960.webp 960w" sizes="(max-width:860px) 50vw, 25vw">
+          <img src="assets/img/photo/sweets-tiers-960.jpg" width="960" height="640"
+               loading="lazy" decoding="async"
+               alt="صحون حلويات مرتّبة على طبقات مع أعلام قطر">
+        </picture>
+        <figcaption><b>طبقات الحلويات</b></figcaption>
+      </figure>
+
+      <figure>
+        <picture>
+          <source type="image/webp" srcset="assets/img/photo/sweets-copper-480.webp 480w,
+                  assets/img/photo/sweets-copper-960.webp 960w" sizes="(max-width:860px) 50vw, 25vw">
+          <img src="assets/img/photo/sweets-copper-960.jpg" width="960" height="640"
+               loading="lazy" decoding="async"
+               alt="دلال نحاسية وصواني حلويات في ضيافة اليوم الوطني">
+        </picture>
+        <figcaption><b>ضيافة المناسبات</b></figcaption>
+      </figure>
+    </div>
+
+    <p style="margin-block-start:var(--s-5);font-size:var(--t-sm);color:var(--text-faint)">
+      وفي المنيو أربع صواني عزايم تبدأ من <span class="num">325</span> وتصل إلى
+      <span class="num">1450</span> ريالاً. <a href="menu.html#banquet-trays">صواني العزايم</a>
+    </p>
+  </div>
+</section>
+
 <!-- ======================================================== أقسام المنيو -->
 <section class="section section--sunken">
   <div class="wrap">
@@ -353,14 +511,17 @@
     <div class="branches" data-reveal>
 
       <article class="branch">
+        <!-- صورة الصالة من تصوير المالك. وفيها زبائن — عُرض عليه أن تُشوَّش
+             الوجوه فقرّر أنّها لا تظهر، والقرار قرارُه وصورتُه وزبائنه.
+             مُوثَّق في docs/PLAN.md ولا يُعاد فتحه بلا أمرٍ منه. -->
         <picture>
-          <source type="image/webp" srcset="assets/img/photo/storefront-480.webp 480w,
-                  assets/img/photo/storefront-960.webp 960w,
-                  assets/img/photo/storefront-1440.webp 1440w"
+          <source type="image/webp" srcset="assets/img/photo/branch-westwalk-480.webp 480w,
+                  assets/img/photo/branch-westwalk-960.webp 960w,
+                  assets/img/photo/branch-westwalk-1440.webp 1440w"
                   sizes="(max-width: 860px) 100vw, 50vw">
-          <img class="branch__img" src="assets/img/photo/storefront-1440.jpg"
-               width="2000" height="1125" loading="lazy" decoding="async"
-               alt="واجهة فرع ويست ووك: جدار فيروزي وزجاج واسع وشعار قيمر وكاهي">
+          <img class="branch__img" src="assets/img/photo/branch-westwalk-1440.jpg"
+               width="1440" height="1920" loading="lazy" decoding="async"
+               alt="صالة فرع ويست ووك: أشجار زيتون، جدار فيروزي بالفوانيس، كراسي خوص، ودلّة نحاسية على الطاولة">
         </picture>
         <div class="branch__b">
           <h3>ويست ووك</h3>
@@ -379,14 +540,15 @@
       </article>
 
       <article class="branch">
-        <!-- 🔴 لا صورةَ لهذا الفرع يملكها المالك. الصورة الموجودة في
-             ملفّاته (`WESTW ALK.jpeg`) عليها شعار QatarLiving.com —
-             الدليل في docs/evidence/. فالمكان موسومٌ ولم يُملأ بصورة
-             غير ملكه، ولا بُيِّض فيُقرأ عطلاً. -->
-        <div class="branch__ph">
-          <strong>صورة الفرع في الانتظار</strong>
-          <span>صورة من تصوير المطعم — راجع <code>intake/03-branch-photos/</code></span>
-        </div>
+        <picture>
+          <source type="image/webp" srcset="assets/img/photo/branch-oldport-480.webp 480w,
+                  assets/img/photo/branch-oldport-960.webp 960w,
+                  assets/img/photo/branch-oldport-1080.webp 1080w"
+                  sizes="(max-width: 860px) 100vw, 50vw">
+          <img class="branch__img" src="assets/img/photo/branch-oldport-1080.jpg"
+               width="1080" height="1440" loading="lazy" decoding="async"
+               alt="صالة فرع ميناء الدوحة القديم: أقواس وجدار فيروزي ورسوم، ومائدة ريوق عليها الكاهي والقدور">
+        </picture>
         <div class="branch__b">
           <h3>ميناء الدوحة القديم</h3>
           <dl>
@@ -398,6 +560,7 @@
             <dd><span class="pending">في الانتظار</span></dd>
           </dl>
           <div class="branch__cta">
+            <a class="btn btn--ghost" href="#films">شاهد الفرع في الفيلم</a>
             <span class="pending">رابط الخريطة في الانتظار</span>
           </div>
         </div>
@@ -412,13 +575,38 @@
   <div class="wrap">
     <div class="section-head" data-reveal>
       <p class="eyebrow">السجلّ</p>
-      <h2>الشهادات والجوائز</h2>
-      <p>
-        هذا القسم محفوظٌ للشهادات والجوائز. ولم يُكتب فيه شيء بعد — وشهادةٌ
-        بلا جهةٍ مانحةٍ وسنةٍ تُقرأ زخرفةً لا سجلّاً.
-      </p>
+      <h2>مذاق قطر</h2>
     </div>
-    <p><span class="pending">في انتظار الملفّات — <code>intake/02-awards-certificates/</code></span></p>
+
+    <div class="award" data-reveal>
+      <picture>
+        <source type="image/webp" srcset="assets/img/photo/award-taste-of-qatar-480.webp 480w,
+                assets/img/photo/award-taste-of-qatar-960.webp 960w"
+                sizes="(max-width: 760px) 100vw, 340px">
+        <img src="assets/img/photo/award-taste-of-qatar-960.jpg" width="960" height="1280"
+             loading="lazy" decoding="async"
+             alt="طبق مذاق قطر الفيروزي بحافة ذهبية، محفور عليه: برنامج تقييم المطاعم — مذاق قطر من قطر للسياحة">
+      </picture>
+
+      <div>
+        <h3>تقدير «تجربة مميّزة للمطاعم العادية»</h3>
+        <p class="award__body">
+          من <strong>برنامج مذاق قطر لتقييم المطاعم</strong> — وهو برنامج
+          <strong>قطر للسياحة</strong> الرسمي الذي يُقيّم مطاعم الدولة.
+          وهذا تقييم جهة حكوميّة لا استفتاء زبائن.
+        </p>
+        <dl>
+          <dt>الجهة المانحة</dt>
+          <dd>قطر للسياحة — Qatar Tourism</dd>
+          <dt>البرنامج</dt>
+          <dd>مذاق قطر · برنامج تقييم المطاعم</dd>
+          <dt>التقدير</dt>
+          <dd>Exceptional Casual Dining Experience</dd>
+          <dt>السنة</dt>
+          <dd><span class="num">2025</span> — كما هي محفورة على الطبق</dd>
+        </dl>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -439,9 +627,11 @@
         <h4>الموقع</h4>
         <ul>
           <li><a href="#story">القيمر والكاهي</a></li>
+          <li><a href="#films">الأفلام</a></li>
+          <li><a href="#gallery">المائدة الكبيرة</a></li>
           <li><a href="menu.html">المنيو</a></li>
           <li><a href="#branches">الفروع</a></li>
-          <li><a href="#awards">الجوائز</a></li>
+          <li><a href="#awards">مذاق قطر</a></li>
         </ul>
       </div>
       <div>
@@ -467,6 +657,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=1" defer></script>
+<script src="assets/js/site.js?v=2" defer></script>
 </body>
 </html>

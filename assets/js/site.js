@@ -81,3 +81,64 @@
     if (p && typeof p.catch === 'function') p.catch(() => { v.controls = true; });
   });
 })();
+
+/* =============================================================================
+   الأفلام — تشغيلٌ بلمسة، وتشغيلٌ تلقائيٌّ مشروطٌ بشبكةٍ تحتمل
+   -----------------------------------------------------------------------------
+   الأفلام الثلاثة 14 ميجا. و`preload="none"` يعني أنّ الصفحة تفتح بأغلفة
+   خفيفة ولا شيء يُحمَّل. والتشغيل التلقائي **مشروط** ولا يُفرض:
+   من فتح «توفير البيانات» أو كان على شبكة بطيئة يبقى على الغلاف — وفيلمٌ
+   يُحمَّل بلا إذنٍ على شبكة جوّال يُكلّف الزائر مالاً.
+   ============================================================================= */
+(() => {
+  'use strict';
+  const films = [...document.querySelectorAll('.film')];
+  if (!films.length) return;
+
+  const play = (fig) => {
+    const v = fig.querySelector('video');
+    if (!v) return;
+    fig.classList.add('is-playing');
+    const p = v.play();
+    // وعدٌ مرفوضٌ يُمسَك: يبقى الغلافُ وزرُّ التشغيل، فلا مستطيلَ أسود
+    if (p && typeof p.catch === 'function') {
+      p.catch(() => { fig.classList.remove('is-playing'); v.controls = true; });
+    }
+  };
+
+  films.forEach((fig) => {
+    const btn = fig.querySelector('.film__play');
+    const v = fig.querySelector('video');
+    if (btn) btn.addEventListener('click', () => play(fig));
+    // الضغط على الفيلم نفسه يُوقف ويُشغّل — ومن شغّله يجب أن يستطيع إيقافه
+    if (v) {
+      v.addEventListener('click', () => {
+        if (v.paused) { play(fig); } else { v.pause(); fig.classList.remove('is-playing'); }
+      });
+    }
+  });
+
+  const c = navigator.connection || {};
+  const cheapData = c.saveData === true;
+  const slow = typeof c.effectiveType === 'string'
+    && /^(slow-)?2g$|^3g$/.test(c.effectiveType);
+  const stillMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (cheapData || slow || stillMotion) return;   // يبقى الغلافُ والزرّ
+
+  // فيلمٌ واحدٌ فقط: الذي يملأ أكثرَ من نصفِ النافذة. وثلاثةٌ تعمل معاً
+  // تُحجز الشبكةَ وتُسخّن الجهازَ ولا تُشاهَد كلُّها.
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const fig = e.target;
+      const v = fig.querySelector('video');
+      if (!v) return;
+      if (e.isIntersecting && e.intersectionRatio > 0.55) {
+        if (v.paused) play(fig);
+      } else if (!v.paused) {
+        v.pause();
+        fig.classList.remove('is-playing');
+      }
+    });
+  }, { threshold: [0, 0.55, 1] });
+  films.forEach((f) => io.observe(f));
+})();

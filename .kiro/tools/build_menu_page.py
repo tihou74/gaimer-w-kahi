@@ -159,10 +159,10 @@ def page_html(data, lang):
 <link rel="alternate" hreflang="ar" href="{"./menu.html" if lang == "ar" else "../menu.html"}">
 <link rel="alternate" hreflang="en" href="{"en/menu.html" if lang == "ar" else "./menu.html"}">
 <link rel="icon" href="{base}assets/img/logo.png">
-<link rel="stylesheet" href="{base}assets/css/tokens.css?v=1">
-<link rel="stylesheet" href="{base}assets/css/base.css?v=1">
-<link rel="stylesheet" href="{base}assets/css/layout.css?v=1">
-<link rel="stylesheet" href="{base}assets/css/menu.css?v=1">
+<link rel="stylesheet" href="{base}assets/css/tokens.css?v=2">
+<link rel="stylesheet" href="{base}assets/css/base.css?v=2">
+<link rel="stylesheet" href="{base}assets/css/layout.css?v=2">
+<link rel="stylesheet" href="{base}assets/css/menu.css?v=2">
 </head>
 <body>
 <a class="skip" href="#menu">{e(t["home"])}</a>
@@ -207,7 +207,7 @@ def page_html(data, lang):
   </div>
 </main>
 
-<script src="{base}assets/js/menu.js?v=1" defer></script>
+<script src="{base}assets/js/menu.js?v=2" defer></script>
 </body>
 </html>
 '''
@@ -268,9 +268,9 @@ def selftest():
         fails.append("lang/dir خطأٌ في إحدى الصفحتَين")
 
     # (٦) مساراتُ الأصولِ تختلف بعمقِ المجلّد — وإلّا فقدت en/ خطَّها وصورَها
-    if 'href="assets/css/tokens.css?v=1"' not in ar:
+    if 'href="assets/css/tokens.css?v=2"' not in ar:
         fails.append("مسارُ الأصولِ في العربيّةِ ليس نسبيّاً للجذر")
-    if 'href="../assets/css/tokens.css?v=1"' not in en:
+    if 'href="../assets/css/tokens.css?v=2"' not in en:
         fails.append("مسارُ الأصولِ في en/ لا يصعد مجلّداً — ستُصوَّر بلا خطّ")
 
     # (٧) كلُّ قسمٍ له مِرساةٌ بنفسِ المعرّفِ الذي تُشير إليه الرئيسيّة

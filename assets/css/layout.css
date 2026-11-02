@@ -330,3 +330,198 @@
   color: var(--gold-600);   /* على الكريمي 4.70:1 — نصّ */
   margin: 0;
 }
+
+/* ============================================================== الأفلام */
+/* ثلاثة أفلام عموديّة 576×1024. وقرارٌ في البيانات لا في الشكل:
+   مجموعُها 14 ميجا، فلا تُحمَّل كلُّها عند فتح الصفحة — `preload="none"`
+   مع غلافٍ، والتشغيلُ بلمسة. ومن كانت شبكتُه جيّدةً ولم يطلب توفيرَ
+   البيانات يُشغَّل له الفيلمُ الذي يراه وحدَه (في site.js). */
+.films {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+}
+.film {
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow-lg);
+}
+.film video, .film img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+}
+.film figcaption {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  padding: var(--s-7) var(--s-4) var(--s-4);
+  color: var(--cream-100);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  background: linear-gradient(to top, rgba(13,13,11,.88), transparent);
+  pointer-events: none;
+}
+.film figcaption b { display: block; font-family: var(--font-display); font-size: var(--t-lg); }
+.film figcaption span { opacity: .8; font-size: var(--t-xs); }
+
+/* زرّ التشغيل: هدفٌ 64 بكسلاً — إصبعٌ لا يُنقّر أصغرَ منه بثقة */
+.film__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--cream-100);
+}
+.film__play i {
+  display: grid;
+  place-content: center;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(13, 13, 11, .55);
+  backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(251, 247, 240, .7);
+  transition: transform .2s var(--ease), background .2s var(--ease);
+}
+.film__play:hover i { transform: scale(1.08); background: rgba(149, 59, 51, .85); }
+.film.is-playing .film__play { opacity: 0; pointer-events: none; }
+
+@media (max-width: 860px) {
+  .films {
+    grid-template-columns: repeat(3, min(74vw, 320px));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * clamp(16px, 5vw, 48px));
+    padding-inline: clamp(16px, 5vw, 48px);
+    padding-block-end: var(--s-3);
+  }
+  .film { scroll-snap-align: center; }
+}
+
+/* ============================================================== الجائزة */
+.award {
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+  gap: clamp(var(--s-6), 5vw, var(--s-8));
+  align-items: center;
+}
+.award img { border-radius: var(--radius); box-shadow: var(--shadow-lg); width: 100%; }
+.award h3 { font-size: var(--t-2xl); margin-bottom: var(--s-3); }
+.award__body { font-size: var(--t-lg); color: var(--text-on-dark-soft); }
+.award dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-2) var(--s-4);
+  margin: var(--s-5) 0 0;
+  font-size: var(--t-sm);
+}
+.award dt { color: var(--teal-400); white-space: nowrap; }
+.award dd { margin: 0; color: var(--text-on-dark); }
+@media (max-width: 760px) { .award { grid-template-columns: 1fr; } }
+
+/* ============================================================== المعرض */
+/* شبكةٌ غيرُ منتظمة: صورتان كبيرتان وأربعٌ صغيرة. الانتظامُ يُسطّح
+   الأثرَ، والطبقُ الذي ثمنُه 420 ريالاً يستحقّ مساحةً أكبر. */
+.gal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: var(--s-3);
+}
+.gal figure { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); }
+/* ⚠ `<picture>` لا يملأ خليّةَ الشبكةِ من نفسِه، فتبقى الخليّةُ أطولَ من
+   الصورةِ وتسقط التسميةُ **أسفلَ** الصورةِ في صندوقٍ رماديٍّ بدل أن
+   تتراكب عليها — وقع فعلاً وظهر في لقطة. وبلا `height:100%` على الأبِ
+   لا يفعل `height:100%` على الصورةِ شيئاً. */
+.gal picture { display: block; height: 100%; }
+.gal img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gal figcaption {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  padding: var(--s-6) var(--s-3) var(--s-3);
+  color: var(--cream-100);
+  font-size: var(--t-sm);
+  background: linear-gradient(to top, rgba(13,13,11,.85), transparent);
+}
+.gal figcaption b { font-family: var(--font-display); }
+.gal figcaption em { font-style: normal; color: var(--teal-200); font-size: var(--t-xs); }
+.gal__wide { grid-column: span 2; grid-row: span 2; }
+.gal__tall { grid-row: span 2; }
+@media (max-width: 860px) {
+  .gal { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+  .gal__wide { grid-column: span 2; grid-row: span 2; }
+}
+
+/* ============================================================== الشريط */
+/* صورةٌ تمتدّ من حافةٍ إلى حافة. و`100vw` **لا تُستعمل**: تتجاهل عرضَ
+   شريطِ التمرير فتُنتج تجاوزاً أفقيّاً بمقدارِه — والفخُّ أنّه يظهر على
+   سطحِ المكتبِ ولا يظهر على الجوّال. والبديلُ هامشٌ سالبٌ بقدرِ حشوةِ
+   الحاوية، فيبقى داخلَ تدفّقِ الصفحة. */
+.band {
+  position: relative;
+  margin: 0;
+  min-height: clamp(320px, 46vw, 560px);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  background: var(--ink-900);
+}
+.band img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+/* ⚠ الحجابُ على **الشريطِ كلِّه** لا على صندوقِ التسمية: حجابٌ يبدأ من
+   أعلى التسميةِ بشفافيّةٍ 0.20 يرسم **خطّاً أفقيّاً حادّاً** عبر الصورة
+   — ظهر فعلاً في لقطة. ويبدأ من الشفافيّةِ الصفرِ فلا حدَّ يُرى. */
+.band::after {
+  content: '';
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  height: 72%;
+  background: linear-gradient(to top,
+    rgba(13, 13, 11, .92) 0%,
+    rgba(13, 13, 11, .62) 42%,
+    rgba(13, 13, 11, 0) 100%);
+  pointer-events: none;
+}
+.band figcaption {
+  position: relative;
+  z-index: 1;
+  padding: var(--s-8) clamp(16px, 5vw, 48px) var(--s-6);
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  color: var(--cream-100);
+}
+.band figcaption p {
+  font-family: var(--font-display);
+  font-size: var(--t-2xl);
+  line-height: 1.5;
+  max-width: 34ch;
+  margin: 0;
+  text-shadow: 0 2px 20px rgba(13, 13, 11, .8);
+}
+/* ⚠ `.band figcaption span` كان يُطابق **كلَّ** span ومنها `.num` داخل
+   السطر، فصار الرقمُ كتلةً وانكسر «35 ر.ق» إلى سطرَين. المحدِّدُ بصنفٍ
+   خاصٍّ لا بنوعِ العنصر. */
+.band__meta {
+  display: block;
+  margin-block-start: var(--s-3);
+  font-family: var(--font-body);
+  font-size: var(--t-sm);
+  color: var(--text-on-dark-soft);
+  text-shadow: 0 1px 12px rgba(13, 13, 11, .9);
+}
