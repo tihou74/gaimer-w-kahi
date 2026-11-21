@@ -70,6 +70,19 @@ window.__run = async (plan) => {
   // ---- عنصرُ فيديو **لكلِّ لقطة** لا لكلِّ ملفّ: لقطتانِ من نفسِ الملفِّ
   //      تحتاجان موضعَي قراءةٍ مختلفَين في نفسِ اللحظةِ (التلاشي المتقاطع
   //      يرسم اللقطتَين معاً)، وعنصرٌ واحدٌ له مؤشّرُ زمنٍ واحد.
+  // ---- صورٌ ثابتةٌ تُحرَّك (كِن بيرنز). لماذا تُخلَط مع المقاطع: مقاطعُ
+  //      المالكِ وصلت 464×832 (ضغطُ واتساب) وصورُه 1536×2048. فاللقطةُ
+  //      الجميلةُ الساكنةُ تُؤخَذ من **الصورةِ** عالية الدقّةِ بحركةٍ بطيئة،
+  //      والمقطعُ يُستعمَل حيث الحركةُ نفسُها هي المقصود (يدٌ تُنزل الصينيّة).
+  //      صورةٌ ساكنةٌ ناعمةٌ تُقرأ «جودةً رديئة»، وحركةٌ ناعمةٌ تُقرأ «فيديو جوّال».
+  const imgs = [];
+  for (const s of plan.shots) {
+    if (s.kind !== 'photo') { imgs.push(null); continue; }
+    const im = new Image(); im.src = s.src;
+    try { await im.decode(); } catch (e) { fail('تعذّر فكُّ الصورة: ' + s.src); }
+    imgs.push(im);
+  }
+
   const vids = [];
   for (const s of plan.shots) {
     if (s.kind !== 'clip') { vids.push(null); continue; }
@@ -94,7 +107,7 @@ window.__run = async (plan) => {
   // ---- جدولُ الزمن: كلُّ لقطةٍ تبدأ قبلَ نهايةِ سابقتِها بمدّةِ التلاشي
   let t = 0; const sched = [];
   plan.shots.forEach((s, i) => {
-    sched.push({ ...s, i, start: t, end: t + s.dur, vid: vids[i] });
+    sched.push({ ...s, i, start: t, end: t + s.dur, vid: vids[i], img: imgs[i] });
     t += s.dur - (i < plan.shots.length - 1 ? DIS : 0);
   });
   const TOTAL = sched[sched.length - 1].end;
@@ -113,6 +126,24 @@ window.__run = async (plan) => {
     const w = vw * k, h = vh * k;
     g.save(); g.globalAlpha = alpha;
     g.drawImage(v, (W - w) / 2, (H - h) / 2, w, h);
+    g.restore();
+  }
+
+  /* صورةٌ ثابتةٌ بحركةٍ بطيئة. الحركةُ **داخلَ** الدقّةِ الزائدةِ لا تكبيرٌ
+     فوقها: 1536×2048 على إطارٍ 1080×1920 يعطي هامشاً حقيقيّاً للتحريكِ
+     بلا فقدِ تفصيل. والزومُ لا يتجاوز 1.14 — أكثرُ من ذلك يُقرأ اهتزازاً. */
+  function kenburns(im, alpha, k, s) {
+    const z0 = s.zoom0 != null ? s.zoom0 : 1.02;
+    const z1 = s.zoom1 != null ? s.zoom1 : 1.14;
+    const ease = k * k * (3 - 2 * k);            // smoothstep — لا بداية حادّة
+    const z = z0 + (z1 - z0) * ease;
+    const base = Math.max(W / im.naturalWidth, H / im.naturalHeight);
+    const kk = base * z;
+    const w = im.naturalWidth * kk, h = im.naturalHeight * kk;
+    const px = (s.panX || 0) * (w - W) * 0.5 * ease;
+    const py = (s.panY != null ? s.panY : -0.5) * (h - H) * 0.5 * ease;
+    g.save(); g.globalAlpha = alpha;
+    g.drawImage(im, (W - w) / 2 + px, (H - h) / 2 + py, w, h);
     g.restore();
   }
 
@@ -159,11 +190,28 @@ window.__run = async (plan) => {
   const capY = H - SAFE.bottom - 120;
   const topY = SAFE.top + 180;
 
+  /* شريطٌ موضعيٌّ تحتَ النصِّ وحدَه.
+     لماذا لا يُشَدُّ الحجابُ العامّ: اللقطةُ القريبةُ على الرزِّ بيضاءُ في
+     أعلاها كلِّه، فقياسُ البكسلِ تحتَ أوّلِ حرفٍ أعطى **1.97:1** — ساقطٌ.
+     وشَدُّ الحجابِ العامِّ كان سيُطفئ الطعامَ كلَّه ليُنجِيَ أربعَ كلمات.
+     فالشريطُ يضمن التباينَ **أيّاً كانت الصورة** ولا يمسُّ بقيّةَ الإطار. */
+  function capBand(y, alpha) {
+    const h = 320;
+    const gr = g.createLinearGradient(0, y - h * .62, 0, y + h * .52);
+    gr.addColorStop(0, 'rgba(13,13,11,0)');
+    gr.addColorStop(.42, 'rgba(13,13,11,.62)');
+    gr.addColorStop(.66, 'rgba(13,13,11,.62)');
+    gr.addColorStop(1, 'rgba(13,13,11,0)');
+    g.save(); g.globalAlpha = alpha; g.fillStyle = gr;
+    g.fillRect(0, y - h * .62, W, h * 1.14); g.restore();
+  }
+
   function drawCaption(s, alpha, k) {
     if (alpha <= 0.01) return;
     const rise = (1 - Math.min(1, k * 3)) * 34;   // يصعد قليلاً عند الظهور
     const base = s.pos === 'top' ? topY : capY;
     const y = base + rise;
+    if (s.title || s.sub) capBand(y, alpha);
     diamonds(W / 2, y - 112, 4, 15, '#FBF7F0', alpha * .85);
     text(s.title, W / 2, y, '700 104px "Aref Ruqaa", serif', '#FBF7F0', alpha);
     text(s.sub, W / 2, y + 92, '600 44px "Noto Kufi Arabic", sans-serif',
@@ -211,8 +259,15 @@ window.__run = async (plan) => {
   }
 
   function drawShot(s, now, alpha, capA) {
-    const k = (now - s.start) / Math.max(.001, s.dur);
+    const k = Math.max(0, Math.min(1, (now - s.start) / Math.max(.001, s.dur)));
     if (s.kind === 'card') { drawCard(s, alpha, k); return; }
+    if (s.kind === 'photo') {
+      kenburns(s.img, alpha, k, s);
+      scrim(s.pos, alpha);
+      watermark(alpha, s.mark === true || (s.mark !== false && plan.watermark === true));
+      drawCaption(s, capA, k);
+      return;
+    }
     cover(s.vid, alpha);
     scrim(s.pos, alpha);
     watermark(alpha, s.mark === true || (s.mark !== false && plan.watermark === true));
@@ -319,9 +374,21 @@ function buildPlan(cfgPath, scale) {
     logo: furl('assets/img/logo.png', repo),
     fontDisplay: furl('assets/fonts/ArefRuqaa-Bold.ttf', repo),
     fontBody: furl('assets/fonts/NotoKufiArabic-SemiBold.ttf', repo),
-    shots: cfg.shots.map(x => x.kind === 'clip'
+    shots: cfg.shots.map(x => (x.kind === 'clip' || x.kind === 'photo')
       ? { ...x, src: furl(x.src, repo) } : { ...x }),
   };
+  // نوعٌ مجهولٌ يُرفَض **قبل** التسجيل. بلا هذا الحارسِ خطأٌ مطبعيٌّ واحدٌ
+  // (`phot` بدل `photo`) يرسم إطاراً **أسودَ** بلا رميٍ ولا رسالة، ويُسلَّم
+  // ريلٌ فيه ثلاثُ ثوانٍ سوداء — وتُقرأ عطلاً في الفيديو لا خطأً في ملفّ.
+  const KINDS = new Set(['clip', 'photo', 'card']);
+  plan.shots.forEach((x, i) => {
+    if (!KINDS.has(x.kind)) {
+      throw new Error(`اللقطة ${i + 1}: نوعٌ مجهول "${x.kind}". `
+        + `المسموح: ${[...KINDS].join(' · ')}`);
+    }
+    if (!(x.dur > 0)) throw new Error(`اللقطة ${i + 1}: مدّةٌ غيرُ صالحة`);
+  });
+
   plan._expected = plan.shots.reduce((a, x, i) =>
     a + x.dur - (i < plan.shots.length - 1 ? cfg.dissolve : 0), 0)
     + cfg.dissolve * 0;      // آخرُ لقطةٍ لا تُقصَّر
@@ -491,7 +558,20 @@ function selftest() {
     ck(w % 2 === 0 && h % 2 === 0, `مقاسٌ فرديٌّ عند scale=${s}`);
   }
 
-  // ٦) الأدواتُ التي يعتمد عليها موجودةٌ فعلاً
+  // ٦) حارسُ النوعِ المجهول — ويُجرَّب على العطلِ المعروفِ نفسِه
+  const KINDS = new Set(['clip', 'photo', 'card']);
+  ck(KINDS.has('photo') && KINDS.has('clip') && KINDS.has('card'),
+     'نوعٌ مشروعٌ مرفوض');
+  ck(!KINDS.has('phot'), 'قبِل الخطأَ المطبعيَّ phot');
+  ck(!KINDS.has(''), 'قبِل نوعاً فارغاً');
+  ck(!KINDS.has(undefined), 'قبِل لقطةً بلا نوع');
+  // والمدّةُ: صفرٌ وسالبٌ وغيرُ رقمٍ كلُّها تُرفَض
+  for (const bad of [0, -1, undefined, null, 'ثانيتان', NaN]) {
+    ck(!(bad > 0), `قبِل مدّةً غيرَ صالحة: ${String(bad)}`);
+  }
+  ck(3.2 > 0, 'رفضَ مدّةً صالحة');
+
+  // ٧) الأدواتُ التي يعتمد عليها موجودةٌ فعلاً
   const here = __dirname;
   for (const f of ['vidframes.js']) {
     ck(fs.existsSync(path.join(here, f)), 'أداةٌ مفقودة: ' + f);
@@ -503,7 +583,7 @@ function selftest() {
     fails.forEach(m => console.error('  ✗ ' + m));
     return 1;
   }
-  console.log('الفحصُ الذاتيّ لـreelrec: مرّ (٦ مجموعات)');
+  console.log('الفحصُ الذاتيّ لـreelrec: مرّ (٧ مجموعات)');
   return 0;
 }
 
