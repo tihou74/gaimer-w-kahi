@@ -95,7 +95,7 @@ jobs:
         run: |
           set -e
           fail=0
-          for d in intake docs .kiro .github data; do
+          for d in intake docs .kiro .github data social; do
             if [ -e "_site/$d" ]; then
               echo "::error::_site/$d موجودٌ وما كان يجب أن يُنشَر"; fail=1
             fi
