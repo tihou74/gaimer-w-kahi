@@ -1,0 +1,36 @@
+{
+  "_ملاحظة": "⚠ هذا الملفّ فيه قيمٌ مؤقّتةٌ موسومةٌ بـ__ لم يقلها المالك. كل قيمةٍ تبدأ بـ__ تُرفَض عند البناء ولا تُرسَم في صورةٍ تُنشَر. راجع README.md في هذا المجلّد.",
+
+  "name_ar": "__اسم الطبق بالعربي__",
+  "name_en": "__DISH NAME__",
+  "lede": "__سطرٌ واحدٌ يوصفه — ما يميّزه عن غيره__",
+  "price": "__00__",
+  "currency": "ر.ق",
+  "ingredients": [
+    "__المكوّن الأول__",
+    "__المكوّن الثاني__",
+    "__المكوّن الثالث__",
+    "__المكوّن الرابع__"
+  ],
+  "serve_note": "__كيف يُقدَّم — حارّ؟ مع شاي؟ لشخصين؟__",
+  "branches_note": "متوفّر في الفرعين",
+
+  "photos": {
+    "hero":   "assets/img/photo/hero-kahi-hand-1440.jpg",
+    "detail": "assets/img/photo/kahi-gaimer-rose-900.jpg",
+    "side":   "assets/img/photo/dish-kahi-board-1440.jpg",
+    "round":  "assets/img/photo/tea-istikan-1440.jpg"
+  },
+
+  "_مُتحقَّقٌ من هذه وحدها": {
+    "brand_ar": "قيمر وكاهي",
+    "brand_en": "GAIMER W KAHI",
+    "since": "2021",
+    "branch_1": "ويست ووك",
+    "branch_1_addr": "شارع السدر",
+    "branch_2": "ميناء الدوحة القديم",
+    "city": "الدوحة — قطر",
+    "award": "Taste of Qatar 2026",
+    "award_ar": "تجربة مطاعم عَرَضيّة استثنائيّة"
+  }
+}

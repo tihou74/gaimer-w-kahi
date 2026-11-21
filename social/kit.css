@@ -1,0 +1,241 @@
+/* =============================================================================
+   قيمر وكاهي — عدّة السوشال
+   -----------------------------------------------------------------------------
+   كل لون هنا مأخوذٌ من `assets/css/tokens.css` — وتلك مُستخرَجةٌ من بكسلات
+   الشعار وصور المحلّ بـ`imgpipe palette`، لا مُختارةً بالذوق.
+
+   ثلاث قواعد مفروضة في هذا الملفّ:
+     · **لا فاصلة `·` بجوار رقم** — في خطّ Amiri تُقرأ صفراً عربيّاً، ومقيسٌ
+       أنّ `٩٥ ريالاً` خرجت تُقرأ `٩٥٠`. وفي سعرٍ هذا خطرُ مال.
+     · **كل سعرٍ بأرقام لاتينيّة** مع `tabular-nums` — وهي أرقام منيوه
+       المطبوع نفسها، فلا يختلف ما يقرؤه على الورق وعلى الشاشة.
+     · **الفيروزي الفاتح سطحٌ لا نصّ** (1.75:1 على الكريمي).
+   ============================================================================= */
+
+@font-face {
+  font-family: 'Aref Ruqaa'; font-weight: 700; font-display: block;
+  src: url('../assets/fonts/ArefRuqaa-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Noto Kufi Arabic'; font-weight: 400; font-display: block;
+  src: url('../assets/fonts/NotoKufiArabic-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Noto Kufi Arabic'; font-weight: 500; font-display: block;
+  src: url('../assets/fonts/NotoKufiArabic-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Noto Kufi Arabic'; font-weight: 600; font-display: block;
+  src: url('../assets/fonts/NotoKufiArabic-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Amiri'; font-weight: 400; font-display: block;
+  src: url('../assets/fonts/Amiri-Regular.ttf') format('truetype');
+}
+
+:root {
+  --ink: #0D0D0B;
+  --ink-soft: #2E2B26;
+  --maroon: #953B33;
+  --maroon-deep: #76281F;
+  --teal: #74CBD2;
+  --teal-deep: #27474A;
+  --cream: #FBF7F0;
+  --cream-2: #F4EDE1;
+  --gold: #C9A24E;
+
+  --display: 'Aref Ruqaa', 'Amiri', serif;
+  --body: 'Noto Kufi Arabic', sans-serif;
+  --serif: 'Amiri', serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #3a3a38;
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* ---------------------------------------------------------------- الإطار
+   مقاسٌ بالبكسل بالضبط. إنستقرام: مربّع 1080×1080، عمودي 1080×1350،
+   ستوري/ريل 1080×1920. والحدّ الأقصى في هذا المشروع 2000 لكل بُعد. */
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--ink);
+  direction: rtl;
+  isolation: isolate;
+}
+.frame--sq  { width: 1080px; height: 1080px; }
+.frame--por { width: 1080px; height: 1350px; }
+.frame--st  { width: 1080px; height: 1920px; }
+
+/* ------------------------------------------------------------- الصورة والحجاب */
+.ph { position: absolute; inset: 0; z-index: 0; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph--zoom img { transform: scale(1.08); }
+
+/* الحجاب يُقاس لا يُقدَّر: النصّ الكريمي عليه يحتاج 4.5:1 فأعلى.
+   #FBF7F0 على حبريٍّ بشفافيّة .82 فوق صورةٍ متوسّطةِ الإضاءة ⇒ ≈ 12:1. */
+.scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(180deg,
+      rgba(13,13,11,.58) 0%,
+      rgba(13,13,11,.14) 26%,
+      rgba(13,13,11,.42) 62%,
+      rgba(13,13,11,.88) 100%);
+}
+.scrim--heavy {
+  background: linear-gradient(180deg,
+    rgba(13,13,11,.30) 0%, rgba(13,13,11,.62) 45%, rgba(13,13,11,.93) 100%);
+}
+/* الحجابُ الجانبيّ. ⚠ اتّجاهُ التدرّجِ كان **مقلوباً** في النسخةِ الأولى:
+   `linear-gradient(265deg, A 0%, B 100%)` يجعل `0%` عند **اليمين** (٢٦٥°
+   تتّجه يساراً)، والنصُّ في صفحةٍ RTL مع `align-items:flex-start` يقع على
+   **اليمين** — فكان الخفيفُ تحت النصِّ والثقيلُ على الطعامِ العاري.
+   والنتيجةُ اسمُ طبقٍ كريميٌّ على حرفِ طبقٍ أبيضَ: تباينٌ ساقطٌ فعلاً. */
+.scrim--side {
+  background: linear-gradient(265deg,
+    rgba(13,13,11,.93) 0%, rgba(13,13,11,.84) 32%,
+    rgba(13,13,11,.62) 56%, rgba(13,13,11,.08) 100%);
+}
+
+/* ------------------------------------------------------------------- المحتوى */
+.layer { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; }
+.pad { padding: 64px; }
+.pad--st { padding: 72px; }
+.grow { flex: 1 1 auto; }
+
+.on-dark { color: var(--cream); }
+.on-dark .soft { color: #D8D1C5; }
+
+/* ----------------------------------------------------------------- المعيّنات
+   أربع معيّنات عنّابيّة — نفس عنصر الشعار، لا زخرفة مُختلقة. */
+.dia { display: flex; gap: 14px; align-items: center; }
+.dia i {
+  width: 15px; height: 15px; background: var(--maroon);
+  transform: rotate(45deg); display: block; border-radius: 2px;
+}
+.dia--cream i { background: var(--cream); }
+.dia--gold i { background: var(--gold); }
+.dia--sm i { width: 10px; height: 10px; }
+
+/* --------------------------------------------------------------------- النصّ */
+.kicker {
+  font-family: var(--body); font-weight: 600;
+  font-size: 30px; letter-spacing: .18em; line-height: 1;
+  text-transform: uppercase;
+}
+.name {
+  font-family: var(--display); font-weight: 700;
+  font-size: 112px; line-height: 1.22; letter-spacing: 0;
+}
+.name--sm { font-size: 82px; }
+.name--xl { font-size: 136px; }
+.name-en {
+  font-family: var(--body); font-weight: 500;
+  font-size: 30px; letter-spacing: .30em; direction: ltr; text-align: right;
+}
+.lede {
+  font-family: var(--serif); font-size: 44px; line-height: 1.55;
+}
+.body {
+  font-family: var(--body); font-weight: 400; font-size: 33px; line-height: 1.7;
+}
+.small { font-family: var(--body); font-size: 27px; line-height: 1.6; }
+
+/* السعر: أرقام لاتينيّة وجدوليّة دائماً، فتتراصف الفواصل ويقرؤها بلا لبس */
+.price {
+  font-family: var(--body); font-weight: 600;
+  font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1;
+  direction: ltr; unicode-bidi: isolate;
+}
+
+/* ------------------------------------------------------------------ الشرائح */
+.chip {
+  display: inline-flex; align-items: center; gap: 16px;
+  background: var(--maroon); color: var(--cream);
+  font-family: var(--body); font-weight: 600; font-size: 31px;
+  letter-spacing: .06em; padding: 20px 38px; border-radius: 999px;
+  box-shadow: 0 10px 34px rgba(13,13,11,.30);
+}
+.chip--teal { background: var(--teal); color: var(--teal-deep); }
+.chip--cream { background: var(--cream); color: var(--maroon); }
+.chip--ghost {
+  background: rgba(251,247,240,.10); color: var(--cream);
+  border: 2px solid rgba(251,247,240,.45); box-shadow: none;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+
+.pricepill {
+  display: inline-flex; align-items: baseline; gap: 12px;
+  background: var(--cream); color: var(--ink);
+  padding: 18px 34px; border-radius: 18px;
+  box-shadow: 0 12px 38px rgba(13,13,11,.34);
+}
+.pricepill b { font-size: 50px; font-weight: 600; }
+.pricepill span { font-size: 27px; color: var(--ink-soft); }
+
+/* ------------------------------------------------------------------- الشعار */
+.logo { height: 104px; width: auto; display: block; }
+.logo--sm { height: 78px; }
+.logo--inv { filter: brightness(0) invert(1); opacity: .96; }
+
+.footline {
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+
+/* --------------------------------------------------- البطاقات (الخلفية الكريميّة) */
+.sheet { background: var(--cream); }
+.sheet--teal { background: var(--teal); }
+.sheet--ink { background: var(--ink); color: var(--cream); }
+.sheet--paper {
+  background:
+    radial-gradient(120% 80% at 85% 0%, rgba(116,203,210,.22) 0%, transparent 55%),
+    radial-gradient(100% 70% at 10% 100%, rgba(149,59,51,.10) 0%, transparent 60%),
+    var(--cream);
+}
+
+.rule { height: 3px; background: var(--cream-2); border: 0; }
+.rule--ink { background: rgba(251,247,240,.16); }
+
+/* قائمة المكوّنات: رقمٌ لاتينيٌّ في معيّنٍ عنّابيّ، ونصٌّ كوفيّ */
+.ing { list-style: none; display: flex; flex-direction: column; gap: 30px; }
+.ing li { display: flex; align-items: flex-start; gap: 26px; }
+.ing .n {
+  flex: 0 0 auto; width: 54px; height: 54px; margin-top: 4px;
+  background: var(--maroon); color: var(--cream);
+  display: grid; place-items: center; transform: rotate(45deg);
+  border-radius: 4px;
+}
+.ing .n b {
+  transform: rotate(-45deg); font-family: var(--body); font-weight: 600;
+  font-size: 26px; font-variant-numeric: tabular-nums; direction: ltr;
+}
+.ing .t { font-family: var(--body); font-size: 35px; line-height: 1.5; padding-top: 6px; }
+
+/* ------------------------------------------------ قصّ الصور في بطاقةٍ كريميّة */
+.cut { overflow: hidden; border-radius: 20px; box-shadow: 0 18px 50px rgba(13,13,11,.18); }
+.cut img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cut--round { border-radius: 999px; }
+
+/* ------------------------------------------------------- مناطق ستوري الآمنة
+   إنستقرام يغطّي الأعلى بالاسم والأسفل بحقل الردّ. الأرقام من دليل
+   إنستقرام للمقاس 1080×1920: ≈250 بكسل أعلى و≈320 أسفل.
+   تُعرَض للمراجعة وتُطفأ في المُخرَج النهائي. */
+.safe { position: absolute; inset: 0; z-index: 9; pointer-events: none; display: none; }
+.frame[data-safe="on"] .safe { display: block; }
+.safe::before, .safe::after {
+  content: ''; position: absolute; left: 0; right: 0;
+  background: rgba(176,76,66,.26);
+  border: 2px dashed rgba(251,247,240,.55);
+}
+.safe::before { top: 0; height: 250px; }
+.safe::after { bottom: 0; height: 320px; }
+
+.st-top { padding-top: 250px; }
+.st-bottom { padding-bottom: 320px; }
